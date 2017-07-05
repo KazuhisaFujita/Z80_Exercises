@@ -1,0 +1,256 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Since : Aug/21/2007
+%Update: <Sep/09/2008>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{ニーモニックと機械語のリスト(アルファベット順)}
+\footnotesize
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{ADD(加算)}\\
+\hline
+機械語& ニーモニック& 機能 \\ \hline
+87& ADD A, A& AにAを加える\\ \hline
+80& ADD A, B& AにBを加える\\ \hline
+81& ADD A, C& AにCを加える\\ \hline
+82& ADD A, D& AにDを加える\\ \hline
+83& ADD A, E& AにEを加える\\ \hline
+84& ADD A, H& AにHを加える\\ \hline
+85& ADD A, L& AにLを加える\\ \hline
+C6 n& ADD A, n& Aにnを加える\\ \hline
+\hline
+\multicolumn{3}{|c|}{AND(論理積)}\\
+\hline
+A7& AND A& AとAのビットごとの論理積をとる\\ \hline
+A0& AND B& AとBのビットごとの論理積をとる\\ \hline
+A1& AND C& AとCのビットごとの論理積をとる\\ \hline
+A2& AND D& AとDのビットごとの論理積をとる\\ \hline
+A3& AND E& AとEのビットごとの論理積をとる\\ \hline
+A4& AND H& AとHのビットごとの論理積をとる\\ \hline
+A5& AND L& AとLのビットごとの論理積をとる\\ \hline
+E6 n& AND n& Aとnのビットごとの論理積をとる\\ \hline
+\hline
+\multicolumn{3}{|c|}{CALL(呼び出し)}\\
+\hline
+CD n m& CALL mnH& mnH番地をコールする \\ \hline
+DC n m& CALL C, mnH& 桁上げ桁下げがあるときmnH番地をコールする\\ \hline
+C4 n m& CALL NC, mnH& 桁上げ桁下げが無いときmnH番地をコールする\\ \hline
+FC n m& CALL M, mnH& 負の数のときmnH番地をコールする\\ \hline
+F4 n m& CALL P, mnH&  正の数のときmnH番地をコールする\\ \hline
+EC n m& CALL PE, mnH& 偶数のときmnH番地をコールする\\ \hline
+E4 n m& CALL PO, mnH& 奇数のときmnH番地をコールする\\ \hline
+CC n m& CALL Z, mnH& ゼロのときmnH番地をコールする\\ \hline
+D4 n m& CALL NZ, mnH& ゼロでないときのときmnH番地をコールする\\ \hline
+\hline
+\multicolumn{3}{|c|}{CP(比較)}\\
+\hline
+BF& CP A& オペラントとAを比較する\\ \hline
+B8& CP B& \\ \hline
+B9& CP C& \\ \hline
+BA& CP D& \\ \hline
+BB& CP E& \\ \hline
+BC& CP H& \\ \hline
+BD& CP L& \\ \hline
+FE n& CP n& \\ \hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{DEC(デクリメント)}\\
+\hline
+機械語& ニーモニック& 機能 \\ \hline
+3D& DEC A& 指定したレジスタから1引く\\ \hline
+05& DEC B& \\ \hline
+0D& DEC C& \\ \hline
+15& DEC D& \\ \hline
+1D& DEC E& \\ \hline
+25& DEC H& \\ \hline
+2D& DEC L& \\ \hline
+\hline
+\multicolumn{3}{|c|}{INPUT(入力)}\\
+\hline
+DB n& IN A, (n)& nで指定したI/OポートにAを入力\\ \hline
+\hline
+\multicolumn{3}{|c|}{INC(インクリメント)}\\
+\hline
+3C& INC A& 指定したレジスタに1足す\\ \hline
+04& INC B&\\ \hline
+0C& INC C&\\ \hline
+14& INC D&\\ \hline
+1C& INC E&\\ \hline
+24& INC H&\\ \hline
+2C& INC L&\\ \hline
+\hline
+\multicolumn{3}{|c|}{JP(ジャンプ)}\\
+\hline
+C3 n m& JP mnH& mnH番地にジャンプする\\ \hline
+DA n m& JP C, mnH& 桁上げ桁下げフラグが立っているときmnH番地にジャンプする\\ \hline
+D2 n m& JP NC, mnH& 桁上げ桁下げフラグが立っていないときmnH番地にジャンプする\\ \hline
+FA n m& JP M, mnH& 負の数フラグが立っているときmnH番地にジャンプする\\ \hline
+F2 n m& JP P, mnH& 正の数フラグが立っているときmnH番地にジャンプする\\ \hline
+EA n m& JP PE, mnH& 偶数フラグが立っているときmnH番地にジャンプする\\ \hline
+E2 n m& JP PO, mnH& 奇数フラグが立っているときmnH番地にジャンプする\\ \hline
+CA n m& JP Z, mnH& ゼロフラグ立っているときmnH番地にジャンプする\\ \hline
+C2 n m& JP NZ, mnH& ゼロフラグがたっていないときmnH番地にジャンプする\\ \hline
+\hline
+\multicolumn{3}{|c|}{LD(転送)}\\
+\hline
+3A n m& LD A, (mnH)&  メモリmnH番地の値をAに転送する\\ \hline
+7F& LD A, A & AをAに転送する  \\ \hline
+78& LD A, B & BをAに転送する  \\ \hline
+79& LD A, C & CをAに転送する \\ \hline
+7A& LD A, D & DをAに転送する \\ \hline
+7B& LD A, E & EをAに転送する \\ \hline
+7C& LD A, H & HをAに転送する \\ \hline
+7D& LD A, L & LをAに転送する \\ \hline
+3E n&  LD A, n  & 値nをAに転送する\\ \hline
+47& LD B, A & AをBに転送する  \\ \hline
+40& LD B, B & BをBに転送する  \\ \hline
+41& LD B, C & CをBに転送する  \\ \hline
+42& LD B, D & DをBに転送する  \\ \hline
+43& LD B, E & EをBに転送する  \\ \hline
+44& LD B, H & HをBに転送する  \\ \hline
+45& LD B, L & LをBに転送する  \\ \hline
+06 n& LD B, n & 値nをBに転送する  \\ \hline
+32 nm& LD mn, A & AをmnHに転送する  \\ \hline
+\end{tabular}
+\end{center}
+
+
+\newpage
+
+
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{LD(転送)}\\
+\hline
+機械語& ニーモニック& 機能 \\ \hline
+4F& LD C, A & AをCに転送する  \\ \hline
+48& LD C, B & BをCに転送する  \\ \hline
+49& LD C, C & CをCに転送する  \\ \hline
+4A& LD C, D & DをCに転送する  \\ \hline
+4B& LD C, E & EをCに転送する  \\ \hline
+4C& LD C, H & HをCに転送する  \\ \hline
+4D& LD C, L & LをCに転送する  \\ \hline
+0E n& LD C, n & 値nをCに転送する  \\ \hline
+57& LD D, A & AをDに転送する  \\ \hline
+50& LD D, B & BをDに転送する  \\ \hline
+51& LD D, C & CをDに転送する  \\ \hline
+52& LD D, D & DをDに転送する  \\ \hline
+53& LD D, E & EをDに転送する  \\ \hline
+54& LD D, H & HをDに転送する  \\ \hline
+55& LD D, L & LをDに転送する  \\ \hline
+16 n& LD D, n & 値nをDに転送する  \\ \hline
+5F& LD E, A & AをEに転送する  \\ \hline
+58& LD E, B & BをEに転送する  \\ \hline
+59& LD E, C & CをEに転送する  \\ \hline
+5A& LD E, D & DをEに転送する  \\ \hline
+5B& LD E, E & EをEに転送する  \\ \hline
+5C& LD E, H & HをEに転送する  \\ \hline
+5D& LD E, L & LをEに転送する  \\ \hline
+1E n& LD E, n & 値nをEに転送する  \\ \hline
+67& LD H, A & AをHに転送する  \\ \hline
+60& LD H, B & BをHに転送する  \\ \hline
+61& LD H, C & CをHに転送する  \\ \hline
+62& LD H, D & DをHに転送する  \\ \hline
+63& LD H, E & EをHに転送する  \\ \hline
+64& LD H, H & HをHに転送する  \\ \hline
+65& LD H, L & LをHに転送する  \\ \hline
+26 n& LD H, n & 値nをHに転送する  \\ \hline
+6F& LD L, A & AをLに転送する  \\ \hline
+68& LD L, B & BをLに転送する  \\ \hline
+69& LD L, C & CをLに転送する  \\ \hline
+6A& LD L, D & DをLに転送する  \\ \hline
+6B& LD L, E & EをLに転送する  \\ \hline
+6C& LD L, H & HをLに転送する  \\ \hline
+6D& LD L, L & LをLに転送する  \\ \hline
+2E n& LD L, n & 値nをLに転送する  \\ \hline
+01 n m& LD BC, mn & 値mnHをBCに転送する  \\ \hline
+11 n m& LD DE, mn & 値mnHをDEに転送する  \\ \hline
+21 n m& LD HL, mn & 値mnHをHLに転送する  \\ \hline
+
+\hline
+
+\end{tabular}
+\end{center}
+
+
+
+
+\newpage
+
+
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+
+\hline
+\multicolumn{3}{|c|}{OR(論理和)}\\
+\hline
+機械語& ニーモニック& 機能 \\ \hline
+B7& OR A& AとAのビットごとの論理和をとる\\ \hline
+B0& OR B& AとBのビットごとの論理和をとる\\ \hline
+B1& OR C& AとCのビットごとの論理和をとる\\ \hline
+B2& OR D& AとDのビットごとの論理和をとる\\ \hline
+B3& OR E& AとEのビットごとの論理和をとる\\ \hline
+B4& OR H& AとHのビットごとの論理和をとる\\ \hline
+B5& OR L& AとLのビットごとの論理和をとる\\ \hline
+F6 n& OR  n& Aとnのビットごとの論理和をとる \\ \hline
+\hline
+\multicolumn{3}{|c|}{OUT(出力)}\\
+\hline
+D3 n& OUT (n), A & Aの内容をI/Oポートnに出力する \\ \hline
+\hline
+\multicolumn{3}{|c|}{RET(戻る)}\\
+\hline
+C9 &RET & サブルーティンから戻る \\ \hline
+D8 &RET C& 桁上げ桁下げフラグが立っているときサブルーティンから戻る \\ \hline
+D0 &RET NC& 桁上げ桁下げフラグが立っていないときサブルーティンから戻る \\ \hline
+F8 &RET M& 負の数フラグが立っているときサブルーティンから戻る \\ \hline
+F0 &RET P& 正の数フラグが立っているときサブルーティンから戻る \\ \hline
+E8 &RET PE& 偶数フラグが立っているときサブルーティンから戻る \\ \hline
+E0 &RET PO& 奇数フラグが立っているときサブルーティンから戻る \\ \hline
+C8 &RET Z& ゼロフラグが立っているときサブルーティンから戻る \\ \hline
+C0 &RET NZ& ゼロフラグが立っていないときサブルーティンから戻る \\ \hline
+\hline
+\multicolumn{3}{|c|}{RLCA(左ビットシフト)}\\
+\hline
+07&  RLCA& Aの内容を左にシフトする\\ \hline
+\hline
+\multicolumn{3}{|c|}{RRCA(右ビットシフト)}\\
+\hline
+0F&  RRCA& Aの内容を右にシフトする\\ \hline
+\hline
+\multicolumn{3}{|c|}{SUB(減算)}\\
+\hline
+97 & SUB A & AからAを引く\\ \hline
+90 & SUB B & AからBを引く\\ \hline
+91 & SUB C & AからCを引く\\ \hline
+92 & SUB D & AからDを引く\\ \hline
+93 & SUB E & AからEを引く\\ \hline
+94 & SUB H & AからHを引く\\ \hline
+95 & SUB L & AからLを引く\\ \hline
+D6 n & SUB n & Aからnを引く\\ \hline
+\hline
+\multicolumn{3}{|c|}{XOR(排他的論理和)}\\
+\hline
+AF &XOR A& AとAのビットごとの排他的論理和をとる \\ \hline
+A8 &XOR B& AとBのビットごとの排他的論理和をとる\\ \hline
+A9 &XOR C& AとCのビットごとの排他的論理和をとる\\ \hline
+AA &XOR D& AとDのビットごとの排他的論理和をとる\\ \hline
+AB &XOR E& AとEのビットごとの排他的論理和をとる\\ \hline
+AC &XOR H& AとHのビットごとの排他的論理和をとる\\ \hline
+AD &XOR L& AとLのビットごとの排他的論理和をとる\\ \hline
+EE n&XOR n& Aとnのビットごとの排他的論理和をとる\\ \hline
+\end{tabular}
+\end{center}
