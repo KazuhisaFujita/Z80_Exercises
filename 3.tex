@@ -1,38 +1,38 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Update: <Sep/24/2010>
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{$B%^%$%/%m%3%s%T%e!<%?1~MQ(B}
+\chapter{マイクロコンピュータ応用}
 
-\section{$BL\E*(B}
+\section{目的}
 
-$B3HD%%Q%i%l%k(BIO$B%\!<%I$N;H$$J}$r3X$S(B, $B3HD%%Q%i%l%k(BIO$B%\!<%I$K%9%F%C%T%s%0%b!<%?$r$D(B
-$B$J$.@)8f$9$k!#$5$i$K%9%$%C%A$bF1;~$K@)8f$9$k$3$H$rL\I8$H$9$k!#(B
+拡張パラレルIOボードの使い方を学び, 拡張パラレルIOボードにステッピングモータをつ
+なぎ制御する。さらにスイッチも同時に制御することを目標とする。
 
-\section{$BAuCV(B}
-\subsection{$B3HD%%Q%i%l%k(BIO$B%\!<%I(B}
+\section{装置}
+\subsection{拡張パラレルIOボード}
 
-$B%^%$%3%s%H%l!<%J$K$O(B1$B$D$N(BIO$B%]!<%H$,IU$$$F$$$^$9!#$7$+$7(B,
-2$B$D0J>e$N3HD%%\!<%I$r@\B3$9$kI,MW$,@8$8$k$3$H$,$"$j$^$9!#(B
-MT-Z$B$G$OK\1i=,$GMQ$$$k%Q%i%l%k(BIO$B%\!<%I$r@\B3$9$k$3$H$G(B, 2$B$D$N(BIO$B%]!<%H$rA}$d$9$3$H$,$G$-$^$9!#(B
+マイコントレーナには1つのIOポートが付いています。しかし,
+2つ以上の拡張ボードを接続する必要が生じることがあります。
+MT-Zでは本演習で用いるパラレルIOボードを接続することで, 2つのIOポートを増やすことができます。
 
-\subsection{$BAuCV%;%C%F%#%s%0(B}
+\subsection{装置セッティング}
 
-$B$^$:(B\figref{fig:connection-io}$B$N$h$&$K(B, MT-Z$B$N:82<$K$"$k%P%9%3%M%/%?$K3HD%%Q%i%l%k(BIO$B%\!<%I$r7R$.$^$9!#(B
-$B$=$7$F(B, $B%9%F%C%T%s%0%b!<%?$H%"%@%W%?$r$"$i$+$8$a@\B3$7$?%9%F%C%T%s%0%b!<%?%$%s%?!<(B
-$B%U%'!<%9%\!<%I$r(BCH1$B$K7R$.$^$9!#(B
+まず\figref{fig:connection-io}のように, MT-Zの左下にあるバスコネクタに拡張パラレルIOボードを繋ぎます。
+そして, ステッピングモータとアダプタをあらかじめ接続したステッピングモータインター
+フェースボードをCH1に繋ぎます。
 
-$B3HD%%Q%i%l%k(BIO$B%\!<%I$O(B, $BA03X4|MQ$$$?(B8255A$B$,(B2$B$D;H$o$l$F$$$^$9!#$h$C$F(B, $B3HD%%Q%i%l%k(BIO$B%\!<(B
-$B%I$K@\B3$7$?5!4o$r;H$&>l9g(B, $BA03X4|$K=,$C$?%9%$%C%A(B, LED$B$J$I$N@)8fJ}K!$HF1$8$h$&(B
-$B$K%3%s%H%m!<%k%o!<%I$r;XDj$7(B, $B%]!<%H$K?.9f$rAw$C$F$d$l$PF0:n$7$^$9!#(B
-IO$B%\!<%I$r;H$&>l9g$N3F%]!<%H$N%"%I%l%9$O(B\tabref{tab:ch1}, \tabref{tab:ch2}$B$N$h$&(B
-$B$K$J$C$F$$$^$9!#$3$3$G$O(B, CH1$B$N(B8255A$B$rMQ$$$k$N$G(BCH1$B$N%"%I%l%9$rMQ$$$^$9!#(B
-$B%W%m%0%i%`$rAH$`$H$-$K$O(B\tabref{tab:ch1}$B$N%"%I%l%9$rMQ$$$F$/$@$5$$!#(B
-$B:#2s$b%3%s%H%m!<%k%o!<%I$O(B90H$B$rMQ$$$^$9!#(B
+拡張パラレルIOボードは, 前学期用いた8255Aが2つ使われています。よって, 拡張パラレルIOボー
+ドに接続した機器を使う場合, 前学期に習ったスイッチ, LEDなどの制御方法と同じよう
+にコントロールワードを指定し, ポートに信号を送ってやれば動作します。
+IOボードを使う場合の各ポートのアドレスは\tabref{tab:ch1}, \tabref{tab:ch2}のよう
+になっています。ここでは, CH1の8255Aを用いるのでCH1のアドレスを用います。
+プログラムを組むときには\tabref{tab:ch1}のアドレスを用いてください。
+今回もコントロールワードは90Hを用います。
 
 \begin{table}
 \begin{minipage}{0.5\hsize}
 \begin{center}
-\caption{$B3HD%%Q%i%l%k(BIO$B%\!<%I(BCH1$B$N%]!<%H%"%I%l%9(B}
+\caption{拡張パラレルIOボードCH1のポートアドレス}
 \label{tab:ch1}
 \begin{tabular}{|c|c|}
 \hline
@@ -46,7 +46,7 @@ CTRL& 23H\\
 \end{minipage}
 \begin{minipage}{0.5\hsize}
 \begin{center}
-\caption{$B3HD%%Q%i%l%k(BIO$B%\!<%I(BCH2$B$N%]!<%H%"%I%l%9(B}
+\caption{拡張パラレルIOボードCH2のポートアドレス}
 \label{tab:ch2}
 \begin{tabular}{|c|c|}
 \hline
@@ -63,79 +63,79 @@ CTRL& 27H\\
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=1\linewidth]{img/connection-io.eps}
-\caption{$BAuCV$N@\B3$NMM;R!#(B}
+\caption{装置の接続の様子。}
 \label{fig:connection-io}
 \end{center}
 \end{figure}
 
 \newpage
 
-\section{$B<B83(B}
+\section{実験}
 
 \begin{description}
-\item[$B2]Bj(B1] $B3HD%%Q%i%l%k(BIO$B%\!<%I$K@\B3$7$?%9%F%C%T%s%0%b!<%?$r(B1$BAjNe<'2sE>$G2sE>$5$;$J$5$$(B(\tabref{tab:q3-1})$B!#(B
-           $B%W%m%0%i%`$O(B, $BA02s$N%9%F%C%T%s%0%b!<%?@)8f%W%m%0%i%`$N(B, $B=PNO%]!<%H%"%I%l%9$r(B\tabref{tab:ch1}$B$r;29M(B
-           $B$K=$@5$9$k$3$H$G%9%F%C%T%s%0%b!<%?$OF0$-$^$9!#(B
+\item[課題1] 拡張パラレルIOボードに接続したステッピングモータを1相励磁回転で回転させなさい(\tabref{tab:q3-1})。
+           プログラムは, 前回のステッピングモータ制御プログラムの, 出力ポートアドレスを\tabref{tab:ch1}を参考
+           に修正することでステッピングモータは動きます。
 
 \begin{table}
 \begin{center}
-\caption{$B2]Bj(B1$B$N%W%m%0%i%`(B}
+\caption{課題1のプログラム}
 \label{tab:q3-1}
 \footnotesize
 \begin{tabular}{|c|l|ll|l|}
 \hline
-$B%"%I%l%9(B& \multicolumn{1}{|c|}{$B5!3#8l(B}&\multicolumn{1}{|c}{$B%i%Y%k(B}&\multicolumn{1}{c|}{$B%K!<%b%K%C%/(B}&\multicolumn{1}{|c|}{$B%3%a%s%H(B}\\
+アドレス& \multicolumn{1}{|c|}{機械語}&\multicolumn{1}{|c}{ラベル}&\multicolumn{1}{c|}{ニーモニック}&\multicolumn{1}{|c|}{コメント}\\
 \hline
-   0005 &            &   &PB EQU 21H& $B3HD%(BIO$B%]!<%H(BB$B%"%I%l%9(B\\
-   0007 &            &   &CTL EQU 23H& $B3HD%(BIO$B%3%s%H%m!<%k%]!<%H%"%I%l%9(B\\
-   0090 &            &   &CLWD EQU 90H& $B3HD%(BIO$B%3%s%H%m!<%k%o!<%I(B\\
+   0005 &            &   &PB EQU 21H& 拡張IOポートBアドレス\\
+   0007 &            &   &CTL EQU 23H& 拡張IOコントロールポートアドレス\\
+   0090 &            &   &CLWD EQU 90H& 拡張IOコントロールワード\\
         &            &   &&\\
    8400 &            &   &    ORG 8400H&\\
-   8400 &  \underline{~~~~} \underline{~~~~}     &   STPMTR:& LD A , CLWD& $B%3%s(B
-                    $B%H%m!<%k%o!<%I$r(BA$B%l%8%9%?$KE>Aw(B\\
-   8402 &  \underline{~~~~} \underline{~~~~}      &   &    OUT (CTL) , A & A$B%l%8(B
-                    $B%9%?$NCM$r%3%s%H%m!<%k%]!<%H$K=PNO(B\\
-   8404 &  \underline{~~~~} \underline{~~~~}       &   LOOP:& LD A , 01H& 01H$B$r(BA
-                    $B%l%8%9%?$KE>Aw(B\\
-   8406 &  \underline{~~~~} \underline{~~~~}      &   &   OUT (PB) , A   & A$B%l%8(B
-                    $B%9%?$NCM$r%]!<%H(BB$B$K=PNO(B\\
+   8400 &  \underline{~~~~} \underline{~~~~}     &   STPMTR:& LD A , CLWD& コン
+                    トロールワードをAレジスタに転送\\
+   8402 &  \underline{~~~~} \underline{~~~~}      &   &    OUT (CTL) , A & Aレジ
+                    スタの値をコントロールポートに出力\\
+   8404 &  \underline{~~~~} \underline{~~~~}       &   LOOP:& LD A , 01H& 01HをA
+                    レジスタに転送\\
+   8406 &  \underline{~~~~} \underline{~~~~}      &   &   OUT (PB) , A   & Aレジ
+                    スタの値をポートBに出力\\
    8408 &  \underline{~~~~} \underline{~~~~}  \underline{~~~~}   &   &   CALL
-                TIMER&  $B%?%$%^$r8F$S=P$9(B\\
-   840B &  \underline{~~~~} \underline{~~~~}      &   &   LD A , 02H& 02H$B$r(BA$B%l%8(B
-                    $B%9%?$KE>Aw(B\\
-   840D &  \underline{~~~~} \underline{~~~~}     &   &   OUT (PB) , A  & A$B%l%8%9(B
-                $B%?$NCM$r%]!<%H(BB$B$K=PNO(B\\
+                TIMER&  タイマを呼び出す\\
+   840B &  \underline{~~~~} \underline{~~~~}      &   &   LD A , 02H& 02HをAレジ
+                    スタに転送\\
+   840D &  \underline{~~~~} \underline{~~~~}     &   &   OUT (PB) , A  & Aレジス
+                タの値をポートBに出力\\
    840F &  \underline{~~~~} \underline{~~~~} \underline{~~~~}  &   &   CALL
-                TIMER&$B%?%$%^$r8F$S=P$9(B\\
-   8412 &  \underline{~~~~} \underline{~~~~}     &   &   LD A , 04H& 04H$B$r(BA$B%l%8(B
-                    $B%9%?$KE>Aw(B\\
-   8414 &  \underline{~~~~} \underline{~~~~}      &   &   OUT (PB) , A   & A$B%l%8(B
-                    $B%9%?$NCM$r%]!<%H(BB$B$K=PNO(B\\
+                TIMER&タイマを呼び出す\\
+   8412 &  \underline{~~~~} \underline{~~~~}     &   &   LD A , 04H& 04HをAレジ
+                    スタに転送\\
+   8414 &  \underline{~~~~} \underline{~~~~}      &   &   OUT (PB) , A   & Aレジ
+                    スタの値をポートBに出力\\
    8416 &  \underline{~~~~} \underline{~~~~} \underline{~~~~}   &   &   CALL
-                TIMER& $B%?%$%^$r8F$S=P$9(B\\
-   8419 &  \underline{~~~~} \underline{~~~~}      &   &   LD A , 08H& 08H$B$r(BA$B%l%8(B
-                    $B%9%?$KE>Aw(B\\
-   841B &  \underline{~~~~} \underline{~~~~}     &   &   OUT (PB) , A& A$B%l%8%9%?(B
-                    $B$NCM$r%]!<%H(BB$B$K=PNO(B\\
+                TIMER& タイマを呼び出す\\
+   8419 &  \underline{~~~~} \underline{~~~~}      &   &   LD A , 08H& 08HをAレジ
+                    スタに転送\\
+   841B &  \underline{~~~~} \underline{~~~~}     &   &   OUT (PB) , A& Aレジスタ
+                    の値をポートBに出力\\
    841D &  \underline{~~~~} \underline{~~~~} \underline{~~~~}   &   &   CALL
-                TIMER& $B%?%$%^$r8F$S=P$9(B\\
-   8420 &  \underline{~~~~} \underline{~~~~} \underline{~~~~}   &   &   JP LOOP& $B%k!<%W$K%8%c%s(B
-                    $B%W(B\\
+                TIMER& タイマを呼び出す\\
+   8420 &  \underline{~~~~} \underline{~~~~} \underline{~~~~}   &   &   JP LOOP& ループにジャン
+                    プ\\
         &            &   &&\\
    8440 &            &    &    ORG 8440H&\\
    8440 &  21 00 40   &    TIMER:& LD
-                HL , 4000H& $BCM(B4000H$B$r(BHL$B%l%8%9%?$KE>Aw(B\\
-   8443 &  5F        &    &    LD E, A&A$B%l%8%9%?$NCM$r(BE$B%l%8%9%?$K(B
-                    $BE>Aw(B\\
-   8444 &  2B        &    TLOOP:& DEC HL&HL$B%l%8%9%?$NCM$+$i(B1$B$r0z$/(B\\
-   8445 &  7C        &    &    LD A, H&H$B%l%8%9%?$NCM$r(BA$B%l%8%9%?$K(B
-                    $BE>Aw(B\\
-   8446 &  B5        &    &    OR L& A$B$NCM$H(BL$B$NCM$NO@M}OB$r$H$k(B\\
-   8447 &  20 FB       &    &    JR NZ , TLOOP& $B%U(B
-                    $B%i%0%l%8%9%?$,(BNZ$B$J$i$P(BTLOOP$B$K%8%c%s%W(B\\
-   8449 &  7B        &    &    LD A, E& E$B%l%8%9%?$NCM$r(BA$B%l%8%9%?$K(B
-                    $BE>Aw(B\\
-   844A &  C9        &    &    RET&$B%k!<%F%#%s$N=*N;(B\\
+                HL , 4000H& 値4000HをHLレジスタに転送\\
+   8443 &  5F        &    &    LD E, A&Aレジスタの値をEレジスタに
+                    転送\\
+   8444 &  2B        &    TLOOP:& DEC HL&HLレジスタの値から1を引く\\
+   8445 &  7C        &    &    LD A, H&Hレジスタの値をAレジスタに
+                    転送\\
+   8446 &  B5        &    &    OR L& Aの値とLの値の論理和をとる\\
+   8447 &  20 FB       &    &    JR NZ , TLOOP& フ
+                    ラグレジスタがNZならばTLOOPにジャンプ\\
+   8449 &  7B        &    &    LD A, E& Eレジスタの値をAレジスタに
+                    転送\\
+   844A &  C9        &    &    RET&ルーティンの終了\\
    844B &            &    &    END&\\
 
 \hline
@@ -144,78 +144,78 @@ CTRL& 27H\\
 \end{table}
 
 
-\item[$B2]Bj(B2] $B2]Bj(B1$B$G:n$C$?%W%m%0%i%`$r2~B$$7(B, $BB.EY$r$$$m$$$m$HJQ$($F$_$J$5$$!#(B
+\item[課題2] 課題1で作ったプログラムを改造し, 速度をいろいろと変えてみなさい。
 
-\item[$B2]Bj(B3] $B2]Bj(B1$B$G:n$C$?%W%m%0%i%`$r2~B$$7(B, $B5U2sE>$5$;$J$5$$!#(B
+\item[課題3] 課題1で作ったプログラムを改造し, 逆回転させなさい。
 
-\item[$B2]Bj(B4] $B1&C<$N%9%$%C%A$,(BON$B$N>l9g9bB.2sE>(B, OFF$B$N>l9g$ODcB.2sE>$9$k%W%m%0%i%`(B
-           $B$r:n$j$J$5$$(B(\tabref{tab:q3-4-1}, \ref{tab:q3-4-2})$B!#(B
+\item[課題4] 右端のスイッチがONの場合高速回転, OFFの場合は低速回転するプログラム
+           を作りなさい(\tabref{tab:q3-4-1}, \ref{tab:q3-4-2})。
 
 \begin{table}
 \begin{center}
-\caption{$B2]Bj(B4$B$N%W%m%0%i%`(B}
+\caption{課題4のプログラム}
 \label{tab:q3-4-1}
 \footnotesize
 \begin{tabular}{|c|l|ll|l|}
 \hline
-$B%"%I%l%9(B& \multicolumn{1}{|c|}{$B5!3#8l(B}&\multicolumn{1}{|c}{$B%i%Y%k(B}&\multicolumn{1}{c|}{$B%K!<%b%K%C%/(B}&\multicolumn{1}{|c|}{$B%3%a%s%H(B}\\
+アドレス& \multicolumn{1}{|c|}{機械語}&\multicolumn{1}{|c}{ラベル}&\multicolumn{1}{c|}{ニーモニック}&\multicolumn{1}{|c|}{コメント}\\
 \hline
-   0004 &          &  & PA EQU 04H& $B%*%s%\!<%I(B8255A$B%]!<%H(BA$B%"%I%l%9(B\\
-   0005 &          &  & PB EQU 05H& $B%*%s%\!<%I(B8255A$B%]!<%H(BB$B%"%I%l%9(B\\
-   0007 &          &  & CTL EQU 07H& $B%*%s%\!<%I(B8255A$B%3%s%H%m!<%k%]!<%H%"%I%l%9(B\\
-   0090 &          &  & CLWD EQU 90H& $B%*%s%\!<%I(B8255A$B%3%s%H%m!<%k%o!<%I(B\\
-   0021 &          &  & PB2 EQU 21H& $B3HD%(BIO$B%]!<%H(BB$B%"%I%l%9(B\\
-   0023 &          &  & CTL2 EQU 23H& $B3HD%(BIO$B%3%s%H%m!<%k%]!<%H%"%I%l%9(B\\
-   0090 &          &  & CTLW2 EQU 90H& $B3HD%(BIO$B%3%s%H%m!<%k%o!<%I(B\\
+   0004 &          &  & PA EQU 04H& オンボード8255AポートAアドレス\\
+   0005 &          &  & PB EQU 05H& オンボード8255AポートBアドレス\\
+   0007 &          &  & CTL EQU 07H& オンボード8255Aコントロールポートアドレス\\
+   0090 &          &  & CLWD EQU 90H& オンボード8255Aコントロールワード\\
+   0021 &          &  & PB2 EQU 21H& 拡張IOポートBアドレス\\
+   0023 &          &  & CTL2 EQU 23H& 拡張IOコントロールポートアドレス\\
+   0090 &          &  & CTLW2 EQU 90H& 拡張IOコントロールワード\\
      &          &  & &\\
    8400 &          &  &     ORG 8400H&\\
-   8400 & \underline{~~~~} \underline{~~~~}    &  &    LD A, CLWD& $B%*%s%\!<%I(B
-                    8255A$BMQ%3%s%H%m!<%k(B
-                    $B%o!<%I$r(BA$B%l%8%9%?$KE>Aw(B\\
-   8402 & \underline{~~~~} \underline{~~~~}    &  &     OUT (CTL), A& A$B%l%8%9%?(B
-                    $B$NCM$r%*%s%\!<%I(B8255A$B%3%s%H%m!<%k%]!<%H$K=PNO(B\\
-   8404 & \underline{~~~~} \underline{~~~~}     &  &     LD A , CTLW2& $B3HD%(BIO$B%3(B
-                    $B%s%H%m!<%k%o!<%I$r(BA$B%l%8%9%?$KE>Aw(B\\
-   8406 & \underline{~~~~} \underline{~~~~}    &  &     OUT (CTL2) , A& A$B%l%8%9(B
-                    $B%?$NCM$r3HD%(BIO$B%3%s%H%m!<%k%]!<%H$K=PNO(B\\
+   8400 & \underline{~~~~} \underline{~~~~}    &  &    LD A, CLWD& オンボード
+                    8255A用コントロール
+                    ワードをAレジスタに転送\\
+   8402 & \underline{~~~~} \underline{~~~~}    &  &     OUT (CTL), A& Aレジスタ
+                    の値をオンボード8255Aコントロールポートに出力\\
+   8404 & \underline{~~~~} \underline{~~~~}     &  &     LD A , CTLW2& 拡張IOコ
+                    ントロールワードをAレジスタに転送\\
+   8406 & \underline{~~~~} \underline{~~~~}    &  &     OUT (CTL2) , A& Aレジス
+                    タの値を拡張IOコントロールポートに出力\\
    8408 & \underline{~~~~} \underline{~~~~} \underline{~~~~}  &  &     LD DE,
-                4000H& 4000H$B$r(BDE$B%l%8%9%?$KE>Aw(B\\
+                4000H& 4000HをDEレジスタに転送\\
    840B & \underline{~~~~} \underline{~~~~} \underline{~~~~} &   LOOP:& CALL
-                MOTOR& $B%b!<%?$r8F$S=P$9(B\\
-   840E & \underline{~~~~} \underline{~~~~}     &  &     IN A, (PA)& $B%]!<%H(BA$B$N>u(B
-                    $BBV$r(BA$B%l%8%9%?$KF~NO(B\\
-   8410 & \underline{~~~~} \underline{~~~~}    &  &     AND 01H& 01H$B$H$NO@M}@Q$r(B
-                    $B$H$k(B\\
-   8412 & \underline{~~~~} \underline{~~~~}     &  &     CP 00H& 00$B$HHf3S$9$k(B\\
+                MOTOR& モータを呼び出す\\
+   840E & \underline{~~~~} \underline{~~~~}     &  &     IN A, (PA)& ポートAの状
+                    態をAレジスタに入力\\
+   8410 & \underline{~~~~} \underline{~~~~}    &  &     AND 01H& 01Hとの論理積を
+                    とる\\
+   8412 & \underline{~~~~} \underline{~~~~}     &  &     CP 00H& 00と比較する\\
    8414 & \underline{~~~~} \underline{~~~~} \underline{~~~~}  &  &     JP Z,
-                SLOW& $B%U%i%0%l%8%9%?$,(BZ$B$J$i$P(BSLOW$B$K%8%c%s%W(B\\
+                SLOW& フラグレジスタがZならばSLOWにジャンプ\\
    8417 & \underline{~~~~} \underline{~~~~} \underline{~~~~} &  &     JP FAST&
-                    FAST$B$K%8%c%s%W(B\\
+                    FASTにジャンプ\\
         &          &  &     &\\
-   841A & \underline{~~~~} \underline{~~~~}    &   MOTOR&    LD A , 01H& 01H$B$r(BA
-                    $B%l%8%9%?$KE>Aw(B\\
-   841C & \underline{~~~~} \underline{~~~~}     &  &     OUT (PB2) , A& A$B%l%8%9(B
-                    $B%?$NCM$r3HD%(BIO$B%]!<%H(BB$B$K=PNO(B\\
+   841A & \underline{~~~~} \underline{~~~~}    &   MOTOR&    LD A , 01H& 01HをA
+                    レジスタに転送\\
+   841C & \underline{~~~~} \underline{~~~~}     &  &     OUT (PB2) , A& Aレジス
+                    タの値を拡張IOポートBに出力\\
    841E & \underline{~~~~} \underline{~~~~} \underline{~~~~} &  &     CALL
-                TIMER& $B%?%$%^$r8F$S=P$9(B\\
-   8421 & \underline{~~~~} \underline{~~~~}     &  &     LD A , 02H& 02H$B$r(BA$B%l%8(B
-                    $B%9%?$KE>Aw(B\\
-   8423 & \underline{~~~~} \underline{~~~~}    &  &     OUT (PB2) , A& A$B%l%8%9%?(B
-                    $B$NCM$r3HD%(BIO$B%]!<%H(BB$B$K=PNO(B\\
+                TIMER& タイマを呼び出す\\
+   8421 & \underline{~~~~} \underline{~~~~}     &  &     LD A , 02H& 02HをAレジ
+                    スタに転送\\
+   8423 & \underline{~~~~} \underline{~~~~}    &  &     OUT (PB2) , A& Aレジスタ
+                    の値を拡張IOポートBに出力\\
    8425 & \underline{~~~~} \underline{~~~~} \underline{~~~~} &  &     CALL
-                TIMER& $B%?%$%^$r8F$S=P$9(B\\
-   8428 & \underline{~~~~} \underline{~~~~}    &  &     LD A , 04H& 04H$B$r(BA$B%l%8%9(B
-                    $B%?$KE>Aw(B\\
-   842A & \underline{~~~~} \underline{~~~~}    &  &     OUT (PB2) , A & A$B%l%8%9(B
-                    $B%?$NCM$r3HD%(BIO$B%]!<%H(BB$B$K=PNO(B\\
+                TIMER& タイマを呼び出す\\
+   8428 & \underline{~~~~} \underline{~~~~}    &  &     LD A , 04H& 04HをAレジス
+                    タに転送\\
+   842A & \underline{~~~~} \underline{~~~~}    &  &     OUT (PB2) , A & Aレジス
+                    タの値を拡張IOポートBに出力\\
    842C & \underline{~~~~} \underline{~~~~} \underline{~~~~}  &  &     CALL
-                TIMER&$B%?%$%^$r8F$S=P$9(B\\
-   842F & \underline{~~~~} \underline{~~~~}     &  &     LD A , 08H& 08H$B$r(BA$B%l%8%9(B
-                    $B%?$KE>Aw(B\\
-   8431 & \underline{~~~~} \underline{~~~~}     &  &     OUT (PB2) , A & A$B%l%8%9(B
-                    $B%?$NCM$r3HD%(BIO$B%]!<%H(BB$B$K=PNO(B\\
-   8433 & \underline{~~~~} \underline{~~~~} \underline{~~~~}  &  &     CALL TIMER&$B%?%$%^$r8F$S=P$9(B\\
-   8436 & \underline{~~~~}       &  &     RET& $B%k!<%F%#%s=*N;(B\\
+                TIMER&タイマを呼び出す\\
+   842F & \underline{~~~~} \underline{~~~~}     &  &     LD A , 08H& 08HをAレジス
+                    タに転送\\
+   8431 & \underline{~~~~} \underline{~~~~}     &  &     OUT (PB2) , A & Aレジス
+                    タの値を拡張IOポートBに出力\\
+   8433 & \underline{~~~~} \underline{~~~~} \underline{~~~~}  &  &     CALL TIMER&タイマを呼び出す\\
+   8436 & \underline{~~~~}       &  &     RET& ルーティン終了\\
         &          &  &     &\\
    8437 & \underline{~~~~} \underline{~~~~} \underline{~~~~}  &  SLOW:& LD DE, 1000H&\\
    843A & \underline{~~~~} \underline{~~~~} \underline{~~~~} &  &     JP LOOP&\\
@@ -232,28 +232,28 @@ CTRL& 27H\\
 
 \begin{table}
 \begin{center}
-\caption{$B2]Bj(B4$B$N%W%m%0%i%`$NB3$-(B}
+\caption{課題4のプログラムの続き}
 \label{tab:q3-4-2}
 \footnotesize
 \begin{tabular}{|c|l|ll|l|}
 \hline
-$B%"%I%l%9(B& \multicolumn{1}{|c|}{$B5!3#8l(B}&\multicolumn{1}{|c}{$B%i%Y%k(B}&\multicolumn{1}{c|}{$B%K!<%b%K%C%/(B}&\multicolumn{1}{|c|}{$B%3%a%s%H(B}\\
+アドレス& \multicolumn{1}{|c|}{機械語}&\multicolumn{1}{|c}{ラベル}&\multicolumn{1}{c|}{ニーモニック}&\multicolumn{1}{|c|}{コメント}\\
 \hline
        &          &  &     &\\
    8600 &          &  &     ORG 8600H&\\
    8600 & \underline{~~~~}       &   TIMER:& LD H, D&\\
    8601 & \underline{~~~~}       &  &     LD L, E&\\
-   8602 &  5F        &    &    LD E, A&A$B%l%8%9%?$NCM$r(BE$B%l%8%9%?$K(B
-                    $BE>Aw(B\\
-   8603 &  2B        &    TLOOP:& DEC HL&HL$B%l%8%9%?$NCM$+$i(B1$B$r0z$/(B\\
-   8604 &  7C        &    &    LD A, H&H$B%l%8%9%?$NCM$r(BA$B%l%8%9%?$K(B
-                    $BE>Aw(B\\
-   8605 &  B5        &    &    OR L& A$B$NCM$H(BL$B$NCM$NO@M}OB$r$H$k(B\\
-   8606 &  20 FB       &    &    JR NZ , TLOOP& $B%U(B
-                    $B%i%0%l%8%9%?$,(BNZ$B$J$i$P(BTLOOP$B$K%8%c%s%W(B\\
-   8608 &  7B        &    &    LD A, E& E$B%l%8%9%?$NCM$r(BA$B%l%8%9%?$K(B
-                    $BE>Aw(B\\
-   8609 &  C9        &    &    RET&$B%k!<%F%#%s$N=*N;(B\\
+   8602 &  5F        &    &    LD E, A&Aレジスタの値をEレジスタに
+                    転送\\
+   8603 &  2B        &    TLOOP:& DEC HL&HLレジスタの値から1を引く\\
+   8604 &  7C        &    &    LD A, H&Hレジスタの値をAレジスタに
+                    転送\\
+   8605 &  B5        &    &    OR L& Aの値とLの値の論理和をとる\\
+   8606 &  20 FB       &    &    JR NZ , TLOOP& フ
+                    ラグレジスタがNZならばTLOOPにジャンプ\\
+   8608 &  7B        &    &    LD A, E& Eレジスタの値をAレジスタに
+                    転送\\
+   8609 &  C9        &    &    RET&ルーティンの終了\\
    860A &            &    &    END&\\
 
 
@@ -262,18 +262,18 @@ CTRL& 27H\\
 \end{center}
 \end{table}
 
-\item[$B2]Bj(B5($BH/E8(B)] $B1&C<$N%9%$%C%A$r(BON$B$K$9$k$H;~7W2s$j$K2sE>$7(B, OFF$B$N;~$KH?;~7W2s$j$K(B
-           $B2sE>$5$;$k%W%m%0%i%`$r:n$j$J$5$$!#(B
+\item[課題5(発展)] 右端のスイッチをONにすると時計回りに回転し, OFFの時に反時計回りに
+           回転させるプログラムを作りなさい。
 
 
 \end{description}
 
 
-\section{$B9M;!2]Bj(B}
+\section{考察課題}
 \begin{description}
-\item[$B9M;!2]Bj(B1] $B2sE>B.EY$rB.$/$7$?$j(B, $BCY$/$7$?$j$7$?$H$-$K(B, $B$&$^$/%b!<%?$,2sE>$7$?$+!#$*$=(B
-      $B$i$/(B, $B$&$^$/2sE>$7$J$+$C$?>l9g$,$"$k$H;W$o$l$k!#$=$N$I$N$h$&$J$H$-$K$&$^$/(B
-      $B2sE>$7$J$+$C$?$+Js9p$7(B, $B$=$N860x$,2?$+9M$($h!#(B
-\item[$B9M;!2]Bj(B2] $B<!2s$N2]Bj%W%m%0%i%`$NN.$l$r9M$($h!#(B
+\item[考察課題1] 回転速度を速くしたり, 遅くしたりしたときに, うまくモータが回転したか。おそ
+      らく, うまく回転しなかった場合があると思われる。そのどのようなときにうまく
+      回転しなかったか報告し, その原因が何か考えよ。
+\item[考察課題2] 次回の課題プログラムの流れを考えよ。
 
 \end{description}

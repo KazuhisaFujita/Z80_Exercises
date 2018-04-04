@@ -1,62 +1,62 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Update: <Sep/24/2010>
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{$B%^%$%/%m%3%s%T%e!<%?1~MQ(B}
+\chapter{マイクロコンピュータ応用}
 
-\section{$BL\E*(B}
+\section{目的}
 
-$B:#2s$O(B, $BA03X4|$N%^%$%/%m%3%s%T%e!<%?4pAC$G9T$C$?%"%;%s%V%j8@8l$NI|=,$r9T$$$^$9!#:#2s(B
-$BI|=,$9$k$N$O(B, $B%G!<%?$NE>Aw(B, $B%k!<%W(B, $B>r7oJ,4t(B, LED$B$N@)8f$G$9!#(B
+今回は, 前学期のマイクロコンピュータ基礎で行ったアセンブリ言語の復習を行います。今回
+復習するのは, データの転送, ループ, 条件分岐, LEDの制御です。
 
-\section{$BAuCV(B}
+\section{装置}
 
-$BA03X4|$GMQ$$$?%^%$%3%s%H%l!<%J(BMT-Z$B$rMQ$$$k!#(B
+前学期で用いたマイコントレーナMT-Zを用いる。
 
-\section{$B<B83(B }
+\section{実験 }
 
-$B:#2s$O(B, $BA03X4|=,$C$?(BZ80$B%"%;%s%V%j$rI|=,$7$^$9!#%"%;%s%V%j%W%m%0%i%_%s%0$GI,MW$J(B
-$B%K!<%b%K%C%/$O(B, $BIUB0$N%K!<%b%K%C(B
-$B%/$H5!3#8l$N%j%9%H$K5!G=$H5!3#8l$,5-:\$5$l$F$$$k$N$G(B, $B;29M$K$7$F$/$@$5$$!#(B
+今回は, 前学期習ったZ80アセンブリを復習します。アセンブリプログラミングで必要な
+ニーモニックは, 付属のニーモニッ
+クと機械語のリストに機能と機械語が記載されているので, 参考にしてください。
 
-\subsection{$B%l%8%9%?(B, $B%a%b%j$NA`:n$NI|=,(B}
+\subsection{レジスタ, メモリの操作の復習}
 
 
-$B%l%8%9%?$H%a%b%j$O%G!<%?$rJ]B8$9$k>l=j$G$9!#$3$3$G$O(B, $B%l%8%9%?$d%a%b%j$N%G!<%?(B
-$B$NE>Aw$N;EJ}$rI|=,$7$^$9!#(B
+レジスタとメモリはデータを保存する場所です。ここでは, レジスタやメモリのデータ
+の転送の仕方を復習します。
 
 \begin{description}
 
 
 
-\item[$B2]Bj(B1] 8500H$B$N?tCM$K(B5$B$rB-$7$??tCM$r(B, 8501H$B$K=q$-9~$`%W%m%0%i%`$r:n$j$J$5$$(B(\tabref{tab:q1-1})$B!#(B
+\item[課題1] 8500Hの数値に5を足した数値を, 8501Hに書き込むプログラムを作りなさい(\tabref{tab:q1-1})。
 
 \begin{itemize}
-\item $B%G!<%?$rE>Aw$9$k%K!<%b%K%C%/$O(B``LD''$B$r;H$$$^$9!#(B``LD''$B$O%G!<%?$r(B
-$BG$0U$N>l=j$XAw$kL?Na$G$9!#4pK\E*$J;H$$J}$O(B, ``LD $B%G!<%?$NE>Aw@h(B,
-$B%G!<%?$NE>Aw85(B''$B$G$9!#(B
+\item データを転送するニーモニックは``LD''を使います。``LD''はデータを
+任意の場所へ送る命令です。基本的な使い方は, ``LD データの転送先,
+データの転送元''です。
 
-\item $B2C;;$r9T$&%K!<%b%K%C%/$O(B``ADD''$B$G$9!#(B
+\item 加算を行うニーモニックは``ADD''です。
 \end{itemize}
 
 
 \begin{table}
 \begin{center}
-\caption{$B2]Bj(B1$B$N%W%m%0%i%`(B}
+\caption{課題1のプログラム}
 \label{tab:q1-1}
 \small
 \begin{tabular}{|c|l|l|l|}
 \hline
-$B%"%I%l%9(B& \multicolumn{1}{|c|}{$B5!3#8l(B}&\multicolumn{1}{|c|}{$B%K!<%b%K%C%/(B}&\multicolumn{1}{|c|}{$B%3%a%s%H(B}\\
+アドレス& \multicolumn{1}{|c|}{機械語}&\multicolumn{1}{|c|}{ニーモニック}&\multicolumn{1}{|c|}{コメント}\\
 \hline
    8400&             &       ORG 8400H     &\\
    8400&   \underline{~~~~} \underline{~~~~} \underline{~~~~}  &        LD A,
-            (8500H)& 8500H$B$NCM$r(BA$B%l%8%9%?$KE>Aw(B\\
-   8403&   \underline{~~~~} \underline{~~~~}     &        ADD A, 05H&A$B%l%8%9%?$N(B
-                $BCM$K(B5$B$rB-$9(B\\
+            (8500H)& 8500Hの値をAレジスタに転送\\
+   8403&   \underline{~~~~} \underline{~~~~}     &        ADD A, 05H&Aレジスタの
+                値に5を足す\\
    8405&   \underline{~~~~} \underline{~~~~} \underline{~~~~}  &        LD
-            (8501H), A& A$B%l%8%9%?$NCM$r(B8501H$B$KE>Aw(B\\
+            (8501H), A& Aレジスタの値を8501Hに転送\\
    8408&   \underline{~~~~} \underline{~~~~} \underline{~~~~}  &        JP
-            0000H& $B%b%K%?%W%m%0%i%`$K%8%c%s%W(B\\
+            0000H& モニタプログラムにジャンプ\\
        &             &       &\\
    8500&             &         ORG 8500H&\\
    8500&   \underline{~~~~}        &        DB 01H&\\
@@ -68,67 +68,67 @@
 
 
 
-\item[$B2]Bj(B2] \figref{fig:flow1}$B$r;29M$K(B, 8500H$B$H(B8501H$B$N?tCM$rB-$7$??tCM$r(B8502H$B$K=q$-9~$`%W%m%0%i%`$r:n$j$J$5$$!#(B
+\item[課題2] \figref{fig:flow1}を参考に, 8500Hと8501Hの数値を足した数値を8502Hに書き込むプログラムを作りなさい。
 
 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=0.6\linewidth]{img/flow1.eps}
-\caption{$B2]Bj(B2$B$N=hM}$NN.$l!#(B}
+\caption{課題2の処理の流れ。}
 \label{fig:flow1}
 \end{center}
 \end{figure}
 \end{description}
 
-\subsection{$B>r7oJ,4t(B, $B%k!<%W(B}
+\subsection{条件分岐, ループ}
 
-$B%W%m%0%i%_%s%08@8l$H$7$F:G$b=EMW$J5!G=$N0l$D$,>r7oJ,4t$d%k!<%W$G$9!#$3$3$G$O%"%;(B
-$B%s%V%j$K$*$1$k>r7oJ,4t(B, $B%k!<%W$rI|=,$7$^$9!#(B
+プログラミング言語として最も重要な機能の一つが条件分岐やループです。ここではアセ
+ンブリにおける条件分岐, ループを復習します。
 
 \begin{description}
-\item[$B2]Bj(B3] 8500H$B$H(B8501H$B$N?tCM$rHf3S$7(B, $BBg$-$$J}$r(B8502H$B$K=q$-9~$`%W%m%0%i%`$r:n$j$J$5(B
-      $B$$(B(\tabref{tab:q1-3})$B!#(B
+\item[課題3] 8500Hと8501Hの数値を比較し, 大きい方を8502Hに書き込むプログラムを作りなさ
+      い(\tabref{tab:q1-3})。
 
 
 \begin{itemize}
-\item $B%G!<%?$rHf3S$9$k$H$-$K$O(B``CP''$B$r;H$$$^$9!#(B
-$BHf3S$7$?7k2L$O%U%i%0%l%8%9%?$KJ]B8$5$l$^$9!#(B
+\item データを比較するときには``CP''を使います。
+比較した結果はフラグレジスタに保存されます。
 
-\item $B%W%m%0%i%`$NG$0U$N>l=j$K%8%c%s%W$9$k$H$-$O(B``JP''$B$rMQ$$$^$9!#(B
-``JP $BHVCO(B''$B$GL5>r7o$KG$0U$NHVCO$K%8%c%s%W$7(B, ``JP X $BHVCO(B''$B$G(B
-$B%U%i%0%l%8%9%?$,(BX$B$N;~$KG$0U$NHVCO$K%8%c%s%W$7$^$9!#(B
+\item プログラムの任意の場所にジャンプするときは``JP''を用います。
+``JP 番地''で無条件に任意の番地にジャンプし, ``JP X 番地''で
+フラグレジスタがXの時に任意の番地にジャンプします。
 \end{itemize}
 
 
 \begin{table}
 \begin{center}
-\caption{$B2]Bj(B3$B$N%W%m%0%i%`(B}
+\caption{課題3のプログラム}
 \label{tab:q1-3}
 \small
 \begin{tabular}{|c|l|ll|l|}
 \hline
-$B%"%I%l%9(B& \multicolumn{1}{|c|}{$B5!3#8l(B}&\multicolumn{1}{|c}{$B%i%Y%k(B}&\multicolumn{1}{c|}{$B%K!<%b%K%C%/(B}&\multicolumn{1}{|c|}{$B%3%a%s%H(B}\\
+アドレス& \multicolumn{1}{|c|}{機械語}&\multicolumn{1}{|c}{ラベル}&\multicolumn{1}{c|}{ニーモニック}&\multicolumn{1}{|c|}{コメント}\\
 \hline
    8400&             &        &ORG 8400H&\\
    8400&   \underline{~~~~} \underline{~~~~} \underline{~~~~}  &        &LD A,
-                (8500H)& 8500H$B$NCM$r(BA$B%l%8%9%?$KE>Aw(B\\
-   8403&   \underline{~~~~}        &        &LD B, A& A$B%l%8%9%?$NCM$r(BB$B%l%8%9%?$K(B
-                    $BE>Aw(B\\
+                (8500H)& 8500Hの値をAレジスタに転送\\
+   8403&   \underline{~~~~}        &        &LD B, A& Aレジスタの値をBレジスタに
+                    転送\\
    8404&   \underline{~~~~} \underline{~~~~} \underline{~~~~}  &        &LD A,
-                (8501H)& 8501H$B$NCM$r(BA$B%l%8%9%?$KE>Aw(B\\
-   8407&   \underline{~~~~}         &        &CP B& B$B$HHf3S(B\\
+                (8501H)& 8501Hの値をAレジスタに転送\\
+   8407&   \underline{~~~~}         &        &CP B& Bと比較\\
    8408&   \underline{~~~~} \underline{~~~~} \underline{~~~~}   &        &JP P,
-                MORE& $B%U%i%0%l%8%9%?$,@5$J$i(BMORE$B$K%8%c%s%W(B\\
-   840B&   \underline{~~~~}         &        &LD A, B& B$B%l%8%9%?$NCM$r(BA$B%l%8%9%?(B
-                    $B$KE>Aw(B\\
+                MORE& フラグレジスタが正ならMOREにジャンプ\\
+   840B&   \underline{~~~~}         &        &LD A, B& Bレジスタの値をAレジスタ
+                    に転送\\
    840C&   \underline{~~~~} \underline{~~~~} \underline{~~~~}   &        &LD
-                (8502H), A& A$B%l%8%9%?$NCM$r(B8502H$B$KE>Aw(B\\
+                (8502H), A& Aレジスタの値を8502Hに転送\\
    840F&   \underline{~~~~} \underline{~~~~} \underline{~~~~}   &        &JP
-                0000H& $B%b%K%?%W%m%0%i%`$K%8%c%s%W(B\\
+                0000H& モニタプログラムにジャンプ\\
    8412&   \underline{~~~~} \underline{~~~~} \underline{~~~~}  &    MORE:&    LD
-                (8502H), A& A$B%l%8%9%?$NCM$r(B8502H$B$KE>Aw(B\\
+                (8502H), A& Aレジスタの値を8502Hに転送\\
    8415&   \underline{~~~~} \underline{~~~~} \underline{~~~~}   &        &JP
-                0000H& $B%b%K%?%W%m%0%i%`$K%8%c%s%W(B\\
+                0000H& モニタプログラムにジャンプ\\
        &             &        &&\\
    8500&             &        &ORG 8500H&\\
    8500&   \underline{~~~~} \underline{~~~~}      &        &DB 01H, 03H&\\
@@ -139,43 +139,43 @@
 \end{table}
 
 
-\item[$B2]Bj(B4] 10$B$+$i(B1$B$:$D0z$$$F$$$-(B, 5$B0J2<$K$J$C$?>l9g=*N;$9$k%W%m%0%i%`$r:n$j$J(B
-           $B$5$$(B(\tabref{tab:q1-4})$B!#(B
+\item[課題4] 10から1ずつ引いていき, 5以下になった場合終了するプログラムを作りな
+           さい(\tabref{tab:q1-4})。
 
 
 \begin{table}
 \begin{center}
-\caption{$B2]Bj(B4$B$N%W%m%0%i%`(B}
+\caption{課題4のプログラム}
 \label{tab:q1-4}
 \small
 \begin{tabular}{|c|l|ll|l|}
 \hline
-$B%"%I%l%9(B& \multicolumn{1}{|c|}{$B5!3#8l(B}&\multicolumn{1}{|c}{$B%i%Y%k(B}&\multicolumn{1}{c|}{$B%K!<%b%K%C%/(B}&\multicolumn{1}{|c|}{$B%3%a%s%H(B}\\
+アドレス& \multicolumn{1}{|c|}{機械語}&\multicolumn{1}{|c}{ラベル}&\multicolumn{1}{c|}{ニーモニック}&\multicolumn{1}{|c|}{コメント}\\
 \hline
    8400&            &         &ORG 8400H&\\
-   8400&   \underline{~~~~} \underline{~~~~}    &         &LD A, 0AH& $BCM(B0AH$B$r(BA$B%l(B
-                    $B%8%9%?$KE>Aw(B\\
-   8402&   \underline{~~~~}       &     LOOP:&    DEC A& A$B$+$i(B1$B$r0z$/(B\\
-   8403&   \underline{~~~~} \underline{~~~~}    &         &CP 05H&05H$B$HHf3S$9$k(B\\
+   8400&   \underline{~~~~} \underline{~~~~}    &         &LD A, 0AH& 値0AHをAレ
+                    ジスタに転送\\
+   8402&   \underline{~~~~}       &     LOOP:&    DEC A& Aから1を引く\\
+   8403&   \underline{~~~~} \underline{~~~~}    &         &CP 05H&05Hと比較する\\
    8405&  \underline{~~~~} \underline{~~~~} \underline{~~~~}  &         &JP NZ,
-                LOOP& $B%U%i%0%l%8%9%?$,(BNZ$B$J$i$P(BLOOP$B$K%8%c%s%W(B\\
+                LOOP& フラグレジスタがNZならばLOOPにジャンプ\\
    8408&   \underline{~~~~} \underline{~~~~} \underline{~~~~} &         &LD
-                (8500H), A& A$B%l%8%9%?$NCM$r(B8500H$B$KE>Aw(B\\
+                (8500H), A& Aレジスタの値を8500Hに転送\\
    840B&  \underline{~~~~} \underline{~~~~} \underline{~~~~} &         &JP
-                0000H& $B%b%K%?%W%m%0%i%`$K%8%c%s%W(B\\
+                0000H& モニタプログラムにジャンプ\\
    840E&            &         &END&\\
 \hline
 \end{tabular}
 \end{center}
 \end{table}
 
-\item[$B2]Bj(B5] \figref{fig:flow2}$B$r;29M$K(B, 1--10$B$NOB$r%a%b%j$N(B8500H$BHVCO$K=q$-9~$`(B
-           $B%W%m%0%i%`$r:n$j$J$5$$!#(B
+\item[課題5] \figref{fig:flow2}を参考に, 1--10の和をメモリの8500H番地に書き込む
+           プログラムを作りなさい。
 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=0.2\linewidth]{img/flow2.eps}
-\caption{$B2]Bj(B5$B$N=hM}$NN.$l(B}
+\caption{課題5の処理の流れ}
 \label{fig:flow2}
 \end{center}
 \end{figure}
@@ -183,47 +183,47 @@
 
 \newpage
 
-\subsection{LED$B$N@)8f$NI|=,(B}
+\subsection{LEDの制御の復習}
 
-MT-Z$B$K$O%Q%i%l%kF~=PNO(BIC$B$N(B8255A$B$,Ek:\$5$l$F$$$^$9!#(B8255A$B$K$O(B, A, B, C, $B%3%s%H%m!<(B
-$B%k$N%]!<%H$,$"$j$^$9!#$3$l$i$N%]!<%H$r;H$&$K$O(B, $B3F%]!<%H$rF~(B
-$BNO$b$7$/$O=PNO$G;H$&$+$N@_Dj>pJs(B($B%3%s%H%m!<%k%o!<%I(B)$B$r%3%s%H%m!<%k%]!<%H$K=PNO$7(B
-$B$J$1$l$P$J$j$^$;$s!#:#2s$O%]!<%H(BA$B$OF~NO(B, $B%]!<%H(BB, C$B$O=PNO$H$7$F;H$&$N$G(B, $B%3%s%H%m!<(B
-$B%k%o!<%I$O(B90H$B$H$7$^$9!#(B
-$B:#2s;H$&(BLED$B$O%]!<%H(BB$B$K$D$J$,$C$F$$$^$9!#%]!<%H(BB$B$KE,@Z$J?.9f$r=PNO$9(B
-$B$k$3$H$G(BLED$B$r@)8f$7$^$9!#(B
+MT-Zにはパラレル入出力ICの8255Aが搭載されています。8255Aには, A, B, C, コントロー
+ルのポートがあります。これらのポートを使うには, 各ポートを入
+力もしくは出力で使うかの設定情報(コントロールワード)をコントロールポートに出力し
+なければなりません。今回はポートAは入力, ポートB, Cは出力として使うので, コントロー
+ルワードは90Hとします。
+今回使うLEDはポートBにつながっています。ポートBに適切な信号を出力す
+ることでLEDを制御します。
 
 \begin{description}
-\item[$B2]Bj(B6] LED$B$r$9$Y$FE@Et$5$;$J$5$$(B(\tabref{tab:q1-6})$B!#(B
+\item[課題6] LEDをすべて点灯させなさい(\tabref{tab:q1-6})。
 
 \begin{itemize}
-\item $B%]!<%H$K?.9f$r=PNO$9$k>l9g$O(B``OUT''$B$r;H$$$^$9!#(B
+\item ポートに信号を出力する場合は``OUT''を使います。
 \end{itemize}
 
 \begin{table}
 \begin{center}
-\caption{$B2]Bj(B6$B$N=hM}$NN.$l(B}
+\caption{課題6の処理の流れ}
 \label{tab:q1-6}
 \small
 \begin{tabular}{|c|l|l|l|}
 \hline
-$B%"%I%l%9(B& \multicolumn{1}{|c|}{$B5!3#8l(B}&\multicolumn{1}{|c|}{$B%K!<%b%K%C%/(B}&\multicolumn{1}{|c|}{$B%3%a%s%H(B}\\
+アドレス& \multicolumn{1}{|c|}{機械語}&\multicolumn{1}{|c|}{ニーモニック}&\multicolumn{1}{|c|}{コメント}\\
 \hline
-   0005 &            &    PB EQU 05H& $B%]!<%H(BB$B$N%"%I%l%9(B\\
-   0007 &            &    CTL EQU 07H& $B%3%s%H%m!<%k%]!<%H$N%"%I%l%9(B\\
-   0090 &            &    CLWD EQU 90H& $B%3%s%H%m!<%k%o!<%I(B\\
+   0005 &            &    PB EQU 05H& ポートBのアドレス\\
+   0007 &            &    CTL EQU 07H& コントロールポートのアドレス\\
+   0090 &            &    CLWD EQU 90H& コントロールワード\\
         &            &    &\\
    8400 &            &        ORG 8400H&\\
-   8400 &  \underline{~~~~} \underline{~~~~}     &        LD A, CLWD& $B%3%s%H%m!<(B
-                $B%k%o!<%I$r(BA$B$KE>Aw(B\\
-   8402 &  \underline{~~~~} \underline{~~~~}      &        OUT (CTL), A& $B%3%s%H(B
-                $B%m!<%k%]!<%H$K(BA$B$NCM$r=PNO(B\\
+   8400 &  \underline{~~~~} \underline{~~~~}     &        LD A, CLWD& コントロー
+                ルワードをAに転送\\
+   8402 &  \underline{~~~~} \underline{~~~~}      &        OUT (CTL), A& コント
+                ロールポートにAの値を出力\\
    8404 &  \underline{~~~~} \underline{~~~~} \underline{~~~~}   &        LD A,
-            (8500H)& 8500H$B$NCM$r(BA$B%l%8%9%?$KE>Aw(B\\
-   8407 &  \underline{~~~~} \underline{~~~~}     &        OUT (PB), A& $B%]!<%H(BB$B$K(BA
-                $B$r=PNO(B\\
+            (8500H)& 8500Hの値をAレジスタに転送\\
+   8407 &  \underline{~~~~} \underline{~~~~}     &        OUT (PB), A& ポートBにA
+                を出力\\
    8409 &  \underline{~~~~} \underline{~~~~} \underline{~~~~}  &        JP
-            0000H& $B%b%K%?%W%m%0%i%`$K%8%c%s%W(B\\
+            0000H& モニタプログラムにジャンプ\\
         &            &    &\\
    8500 &            &        ORG 8500H&\\
    8500 &  \underline{~~~~}        &        DB 0FFH&\\
@@ -234,54 +234,54 @@ MT-Z$B$K$O%Q%i%l%kF~=PNO(BIC$B$N(B8255A$B$,Ek:\$5$l$F$$$^$9!#(B8255A$B$K$
 \end{table}
 
 
-\item[$B2]Bj(B7] LED$B$r0l$D$*$-$KE@Et$5$;$J$5$$!#(B
+\item[課題7] LEDを一つおきに点灯させなさい。
 
-\item[$B2]Bj(B8] LED$B$NE@Et$,H?E>$r7+$jJV$9%W%m%0%i%`$r:n$j$J$5$$(B(\tabref{tab:q1-8})$B!#(B
+\item[課題8] LEDの点灯が反転を繰り返すプログラムを作りなさい(\tabref{tab:q1-8})。
 
 \begin{table}
 \begin{center}
-\caption{$B2]Bj(B8$B$N%W%m%0%i%`(B}
+\caption{課題8のプログラム}
 \label{tab:q1-8}
 \small
 \begin{tabular}{|c|l|ll|l|}
 \hline
-$B%"%I%l%9(B& \multicolumn{1}{|c|}{$B5!3#8l(B}&\multicolumn{1}{|c}{$B%i%Y%k(B}&\multicolumn{1}{c|}{$B%K!<%b%K%C%/(B}&\multicolumn{1}{|c|}{$B%3%a%s%H(B}\\
+アドレス& \multicolumn{1}{|c|}{機械語}&\multicolumn{1}{|c}{ラベル}&\multicolumn{1}{c|}{ニーモニック}&\multicolumn{1}{|c|}{コメント}\\
 \hline
-   0005 &            &    &PB EQU 05H& $B%]!<%H(BB$B$N%"%I%l%9(B\\
-   0007 &            &    &CTL EQU 07H& $B%3%s%H%m!<%k%]!<%H$N%"%I%l%9(B\\
-   0090 &            &    &CLWD EQU 90H& $B%3%s%H%m!<%k%o!<%I(B\\
+   0005 &            &    &PB EQU 05H& ポートBのアドレス\\
+   0007 &            &    &CTL EQU 07H& コントロールポートのアドレス\\
+   0090 &            &    &CLWD EQU 90H& コントロールワード\\
         &            &    &&\\
    8400 &            &    &    ORG 8400H&\\
-   8400 &  \underline{~~~~} \underline{~~~~}     &    &    LD A, CLWD& $B%3%s%H%m!<(B
-                    $B%k%o!<%I$r(BA$B%l%8%9%?$KE>Aw(B\\
-   8402 &  \underline{~~~~} \underline{~~~~}     &    &    OUT (CTL), A& $B%3%s%H(B
-                    $B%m!<%k%]!<%H$K(BA$B%l%8%9%?$NCM$r=PNO(B\\
-   8404 &  \underline{~~~~} \underline{~~~~}      &    &    LD A, 08H& $BCM(B08H$B$r(BA
-                    $B%l%8%9%?$KE>Aw(B\\
+   8400 &  \underline{~~~~} \underline{~~~~}     &    &    LD A, CLWD& コントロー
+                    ルワードをAレジスタに転送\\
+   8402 &  \underline{~~~~} \underline{~~~~}     &    &    OUT (CTL), A& コント
+                    ロールポートにAレジスタの値を出力\\
+   8404 &  \underline{~~~~} \underline{~~~~}      &    &    LD A, 08H& 値08HをA
+                    レジスタに転送\\
    8406 &  \underline{~~~~} \underline{~~~~}      &    SHIFT:&     OUT (PB), A&
-                    $B%]!<%H(BB$B$K(BA$B%l%8%9%?$NCM$r=PNO(B\\
-   8408 &  \underline{~~~~} \underline{~~~~}     &        &XOR 0FFH& A$B%l%8%9%?$H(B
-                    FFH$B$H$NGSB>E*O@M}OB$r$H$k(B\\
+                    ポートBにAレジスタの値を出力\\
+   8408 &  \underline{~~~~} \underline{~~~~}     &        &XOR 0FFH& Aレジスタと
+                    FFHとの排他的論理和をとる\\
    840A &  \underline{~~~~} \underline{~~~~} \underline{~~~~}   &        &CALL
-                TIMER& $B%?%$%^$r8F$S=P$9(B\\
+                TIMER& タイマを呼び出す\\
    840D &  \underline{~~~~} \underline{~~~~} \underline{~~~~}   &        &JP
-                SHIFT& $B%7%U%H$K%8%c%s%W(B\\
+                SHIFT& シフトにジャンプ\\
         &            &    &&\\
         &            &    &&\\
    8440 &            &    &    ORG 8440H&\\
    8440 &  21 00 40   &    TIMER:& LD
-                HL , 4000H& $BCM(B4000H$B$r(BHL$B%l%8%9%?$KE>Aw(B\\
-   8443 &  5F        &    &    LD E, A&A$B%l%8%9%?$NCM$r(BE$B%l%8%9%?$K(B
-                    $BE>Aw(B\\
-   8444 &  2B        &    TLOOP:& DEC HL&HL$B%l%8%9%?$NCM$+$i(B1$B$r0z$/(B\\
-   8445 &  7C        &    &    LD A, H&H$B%l%8%9%?$NCM$r(BA$B%l%8%9%?$K(B
-                    $BE>Aw(B\\
-   8446 &  B5        &    &    OR L& A$B$NCM$H(BL$B$NCM$NO@M}OB$r$H$k(B\\
-   8447 &  20 FB       &    &    JR NZ , TLOOP& $B%U(B
-                    $B%i%0%l%8%9%?$,(BNZ$B$J$i$P(BTLOOP$B$K%8%c%s%W(B\\
-   8449 &  7B        &    &    LD A, E& E$B%l%8%9%?$NCM$r(BA$B%l%8%9%?$K(B
-                    $BE>Aw(B\\
-   844A &  C9        &    &    RET&$B%k!<%F%#%s$N=*N;(B\\
+                HL , 4000H& 値4000HをHLレジスタに転送\\
+   8443 &  5F        &    &    LD E, A&Aレジスタの値をEレジスタに
+                    転送\\
+   8444 &  2B        &    TLOOP:& DEC HL&HLレジスタの値から1を引く\\
+   8445 &  7C        &    &    LD A, H&Hレジスタの値をAレジスタに
+                    転送\\
+   8446 &  B5        &    &    OR L& Aの値とLの値の論理和をとる\\
+   8447 &  20 FB       &    &    JR NZ , TLOOP& フ
+                    ラグレジスタがNZならばTLOOPにジャンプ\\
+   8449 &  7B        &    &    LD A, E& Eレジスタの値をAレジスタに
+                    転送\\
+   844A &  C9        &    &    RET&ルーティンの終了\\
    844B &            &    &    END&\\
 
 \hline
@@ -290,35 +290,35 @@ MT-Z$B$K$O%Q%i%l%kF~=PNO(BIC$B$N(B8255A$B$,Ek:\$5$l$F$$$^$9!#(B8255A$B$K$
 \end{table}
 
 
-\item[$B2]Bj(B9] \figref{fig:flow3}$B$r;29M$K(B, LED$B$NE@Et0LCV$,:8$K%7%U%H$9$k%W%m%0%i%`(B
-           $B$r:n$j$J$5$$!#(B
+\item[課題9] \figref{fig:flow3}を参考に, LEDの点灯位置が左にシフトするプログラム
+           を作りなさい。
 
 \begin{itemize}
-\item $B:8$K%7%U%H$5$;$k$K$O(B, $B:8$K%S%C%H%7%U%H$5$;$k(B``RLCA''$B$r;H$&!#(B
+\item 左にシフトさせるには, 左にビットシフトさせる``RLCA''を使う。
 \end{itemize}
 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=0.4\linewidth]{img/flow3.eps}
-\caption{$B2]Bj(B9$B$N=hM}$NN.$l(B}
+\caption{課題9の処理の流れ}
 \label{fig:flow3}
 \end{center}
 \end{figure}
 
-\item[$B2]Bj(B10($BH/E8(B)] LED$B$NE@Et0LCV$,(B, $B;O$a:8$K%7%U%H$7(B, $B:8C<$K$-$?$i1&$K%7%U%H(B, $B1&C<$K$-$?$i(B
-           $B:8$K%7%U%H$9$k$h$&$J%W%m%0%i%`$r:n$l!#(B
+\item[課題10(発展)] LEDの点灯位置が, 始め左にシフトし, 左端にきたら右にシフト, 右端にきたら
+           左にシフトするようなプログラムを作れ。
 
 \end{description}
 
 
 \newpage
-\section{$B9M;!2]Bj(B}
+\section{考察課題}
 
 \begin{description}
-\item[$B9M;!2]Bj(B1] $B%"%;%s%V%j8@8l$ODc5i8@8l$H$$$o$l$F$$$k!#Dc5i8@8l$H$O2?$+Js9p(B
-           $B$7$J$5$$!#(B
-\item[$B9M;!2]Bj(B2] $B%W%m%0%i%_%s%08@8l$K$O9b5i8@8l$H8F$P$l$k$b$N$,$"$k!#9b5i8@8l$H(B
-           $B$O2?$+Js9p$7$J$5$$!#$^$?(B, $B9b5i8@8l$NNc$r(B2$B$DJs9p$7(B, $B$=$N8@8l$,<g$K$I$N$h$&$JMQES$G;H$o$l$k$+$J$I$NFC(B
-      $BD'$bJs9p$7$J$5$$!#(B
+\item[考察課題1] アセンブリ言語は低級言語といわれている。低級言語とは何か報告
+           しなさい。
+\item[考察課題2] プログラミング言語には高級言語と呼ばれるものがある。高級言語と
+           は何か報告しなさい。また, 高級言語の例を2つ報告し, その言語が主にどのような用途で使われるかなどの特
+      徴も報告しなさい。
 
 \end{description}
