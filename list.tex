@@ -3,50 +3,50 @@
 %Update: <Sep/09/2008>
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{$B%K!<%b%K%C%/$H5!3#8l$N%j%9%H(B($B%"%k%U%!%Y%C%H=g(B)}
+\chapter{ニーモニックと機械語のリスト(アルファベット順)}
 \footnotesize
 
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-\multicolumn{3}{|c|}{ADD($B2C;;(B)}\\
+\multicolumn{3}{|c|}{ADD(加算)}\\
 \hline
-$B5!3#8l(B& $B%K!<%b%K%C%/(B& $B5!G=(B \\ \hline
-87& ADD A, A& A$B$K(BA$B$r2C$($k(B\\ \hline
-80& ADD A, B& A$B$K(BB$B$r2C$($k(B\\ \hline
-81& ADD A, C& A$B$K(BC$B$r2C$($k(B\\ \hline
-82& ADD A, D& A$B$K(BD$B$r2C$($k(B\\ \hline
-83& ADD A, E& A$B$K(BE$B$r2C$($k(B\\ \hline
-84& ADD A, H& A$B$K(BH$B$r2C$($k(B\\ \hline
-85& ADD A, L& A$B$K(BL$B$r2C$($k(B\\ \hline
-C6 n& ADD A, n& A$B$K(Bn$B$r2C$($k(B\\ \hline
+機械語& ニーモニック& 機能 \\ \hline
+87& ADD A, A& AにAを加える\\ \hline
+80& ADD A, B& AにBを加える\\ \hline
+81& ADD A, C& AにCを加える\\ \hline
+82& ADD A, D& AにDを加える\\ \hline
+83& ADD A, E& AにEを加える\\ \hline
+84& ADD A, H& AにHを加える\\ \hline
+85& ADD A, L& AにLを加える\\ \hline
+C6 n& ADD A, n& Aにnを加える\\ \hline
 \hline
-\multicolumn{3}{|c|}{AND($BO@M}@Q(B)}\\
+\multicolumn{3}{|c|}{AND(論理積)}\\
 \hline
-A7& AND A& A$B$H(BA$B$N%S%C%H$4$H$NO@M}@Q$r$H$k(B\\ \hline
-A0& AND B& A$B$H(BB$B$N%S%C%H$4$H$NO@M}@Q$r$H$k(B\\ \hline
-A1& AND C& A$B$H(BC$B$N%S%C%H$4$H$NO@M}@Q$r$H$k(B\\ \hline
-A2& AND D& A$B$H(BD$B$N%S%C%H$4$H$NO@M}@Q$r$H$k(B\\ \hline
-A3& AND E& A$B$H(BE$B$N%S%C%H$4$H$NO@M}@Q$r$H$k(B\\ \hline
-A4& AND H& A$B$H(BH$B$N%S%C%H$4$H$NO@M}@Q$r$H$k(B\\ \hline
-A5& AND L& A$B$H(BL$B$N%S%C%H$4$H$NO@M}@Q$r$H$k(B\\ \hline
-E6 n& AND n& A$B$H(Bn$B$N%S%C%H$4$H$NO@M}@Q$r$H$k(B\\ \hline
+A7& AND A& AとAのビットごとの論理積をとる\\ \hline
+A0& AND B& AとBのビットごとの論理積をとる\\ \hline
+A1& AND C& AとCのビットごとの論理積をとる\\ \hline
+A2& AND D& AとDのビットごとの論理積をとる\\ \hline
+A3& AND E& AとEのビットごとの論理積をとる\\ \hline
+A4& AND H& AとHのビットごとの論理積をとる\\ \hline
+A5& AND L& AとLのビットごとの論理積をとる\\ \hline
+E6 n& AND n& Aとnのビットごとの論理積をとる\\ \hline
 \hline
-\multicolumn{3}{|c|}{CALL($B8F$S=P$7(B)}\\
+\multicolumn{3}{|c|}{CALL(呼び出し)}\\
 \hline
-CD n m& CALL mnH& mnH$BHVCO$r%3!<%k$9$k(B \\ \hline
-DC n m& CALL C, mnH& $B7e>e$27e2<$2$,$"$k$H$-(BmnH$BHVCO$r%3!<%k$9$k(B\\ \hline
-C4 n m& CALL NC, mnH& $B7e>e$27e2<$2$,L5$$$H$-(BmnH$BHVCO$r%3!<%k$9$k(B\\ \hline
-FC n m& CALL M, mnH& $BIi$N?t$N$H$-(BmnH$BHVCO$r%3!<%k$9$k(B\\ \hline
-F4 n m& CALL P, mnH&  $B@5$N?t$N$H$-(BmnH$BHVCO$r%3!<%k$9$k(B\\ \hline
-EC n m& CALL PE, mnH& $B6v?t$N$H$-(BmnH$BHVCO$r%3!<%k$9$k(B\\ \hline
-E4 n m& CALL PO, mnH& $B4q?t$N$H$-(BmnH$BHVCO$r%3!<%k$9$k(B\\ \hline
-CC n m& CALL Z, mnH& $B%<%m$N$H$-(BmnH$BHVCO$r%3!<%k$9$k(B\\ \hline
-D4 n m& CALL NZ, mnH& $B%<%m$G$J$$$H$-$N$H$-(BmnH$BHVCO$r%3!<%k$9$k(B\\ \hline
+CD n m& CALL mnH& mnH番地をコールする \\ \hline
+DC n m& CALL C, mnH& 桁上げ桁下げがあるときmnH番地をコールする\\ \hline
+C4 n m& CALL NC, mnH& 桁上げ桁下げが無いときmnH番地をコールする\\ \hline
+FC n m& CALL M, mnH& 負の数のときmnH番地をコールする\\ \hline
+F4 n m& CALL P, mnH&  正の数のときmnH番地をコールする\\ \hline
+EC n m& CALL PE, mnH& 偶数のときmnH番地をコールする\\ \hline
+E4 n m& CALL PO, mnH& 奇数のときmnH番地をコールする\\ \hline
+CC n m& CALL Z, mnH& ゼロのときmnH番地をコールする\\ \hline
+D4 n m& CALL NZ, mnH& ゼロでないときのときmnH番地をコールする\\ \hline
 \hline
-\multicolumn{3}{|c|}{CP($BHf3S(B)}\\
+\multicolumn{3}{|c|}{CP(比較)}\\
 \hline
-BF& CP A& $B%*%Z%i%s%H$H(BA$B$rHf3S$9$k(B\\ \hline
+BF& CP A& オペラントとAを比較する\\ \hline
 B8& CP B& \\ \hline
 B9& CP C& \\ \hline
 BA& CP D& \\ \hline
@@ -64,10 +64,10 @@ FE n& CP n& \\ \hline
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-\multicolumn{3}{|c|}{DEC($B%G%/%j%a%s%H(B)}\\
+\multicolumn{3}{|c|}{DEC(デクリメント)}\\
 \hline
-$B5!3#8l(B& $B%K!<%b%K%C%/(B& $B5!G=(B \\ \hline
-3D& DEC A& $B;XDj$7$?%l%8%9%?$+$i(B1$B0z$/(B\\ \hline
+機械語& ニーモニック& 機能 \\ \hline
+3D& DEC A& 指定したレジスタから1引く\\ \hline
 05& DEC B& \\ \hline
 0D& DEC C& \\ \hline
 15& DEC D& \\ \hline
@@ -75,13 +75,13 @@ FE n& CP n& \\ \hline
 25& DEC H& \\ \hline
 2D& DEC L& \\ \hline
 \hline
-\multicolumn{3}{|c|}{INPUT($BF~NO(B)}\\
+\multicolumn{3}{|c|}{INPUT(入力)}\\
 \hline
-DB n& IN A, (n)& n$B$G;XDj$7$?(BI/O$B%]!<%H$K(BA$B$rF~NO(B\\ \hline
+DB n& IN A, (n)& nで指定したI/OポートにAを入力\\ \hline
 \hline
-\multicolumn{3}{|c|}{INC($B%$%s%/%j%a%s%H(B)}\\
+\multicolumn{3}{|c|}{INC(インクリメント)}\\
 \hline
-3C& INC A& $B;XDj$7$?%l%8%9%?$K(B1$BB-$9(B\\ \hline
+3C& INC A& 指定したレジスタに1足す\\ \hline
 04& INC B&\\ \hline
 0C& INC C&\\ \hline
 14& INC D&\\ \hline
@@ -89,38 +89,38 @@ DB n& IN A, (n)& n$B$G;XDj$7$?(BI/O$B%]!<%H$K(BA$B$rF~NO(B\\ \hline
 24& INC H&\\ \hline
 2C& INC L&\\ \hline
 \hline
-\multicolumn{3}{|c|}{JP($B%8%c%s%W(B)}\\
+\multicolumn{3}{|c|}{JP(ジャンプ)}\\
 \hline
-C3 n m& JP mnH& mnH$BHVCO$K%8%c%s%W$9$k(B\\ \hline
-DA n m& JP C, mnH& $B7e>e$27e2<$2%U%i%0$,N)$C$F$$$k$H$-(BmnH$BHVCO$K%8%c%s%W$9$k(B\\ \hline
-D2 n m& JP NC, mnH& $B7e>e$27e2<$2%U%i%0$,N)$C$F$$$J$$$H$-(BmnH$BHVCO$K%8%c%s%W$9$k(B\\ \hline
-FA n m& JP M, mnH& $BIi$N?t%U%i%0$,N)$C$F$$$k$H$-(BmnH$BHVCO$K%8%c%s%W$9$k(B\\ \hline
-F2 n m& JP P, mnH& $B@5$N?t%U%i%0$,N)$C$F$$$k$H$-(BmnH$BHVCO$K%8%c%s%W$9$k(B\\ \hline
-EA n m& JP PE, mnH& $B6v?t%U%i%0$,N)$C$F$$$k$H$-(BmnH$BHVCO$K%8%c%s%W$9$k(B\\ \hline
-E2 n m& JP PO, mnH& $B4q?t%U%i%0$,N)$C$F$$$k$H$-(BmnH$BHVCO$K%8%c%s%W$9$k(B\\ \hline
-CA n m& JP Z, mnH& $B%<%m%U%i%0N)$C$F$$$k$H$-(BmnH$BHVCO$K%8%c%s%W$9$k(B\\ \hline
-C2 n m& JP NZ, mnH& $B%<%m%U%i%0$,$?$C$F$$$J$$$H$-(BmnH$BHVCO$K%8%c%s%W$9$k(B\\ \hline
+C3 n m& JP mnH& mnH番地にジャンプする\\ \hline
+DA n m& JP C, mnH& 桁上げ桁下げフラグが立っているときmnH番地にジャンプする\\ \hline
+D2 n m& JP NC, mnH& 桁上げ桁下げフラグが立っていないときmnH番地にジャンプする\\ \hline
+FA n m& JP M, mnH& 負の数フラグが立っているときmnH番地にジャンプする\\ \hline
+F2 n m& JP P, mnH& 正の数フラグが立っているときmnH番地にジャンプする\\ \hline
+EA n m& JP PE, mnH& 偶数フラグが立っているときmnH番地にジャンプする\\ \hline
+E2 n m& JP PO, mnH& 奇数フラグが立っているときmnH番地にジャンプする\\ \hline
+CA n m& JP Z, mnH& ゼロフラグ立っているときmnH番地にジャンプする\\ \hline
+C2 n m& JP NZ, mnH& ゼロフラグがたっていないときmnH番地にジャンプする\\ \hline
 \hline
-\multicolumn{3}{|c|}{LD($BE>Aw(B)}\\
+\multicolumn{3}{|c|}{LD(転送)}\\
 \hline
-3A n m& LD A, (mnH)&  $B%a%b%j(BmnH$BHVCO$NCM$r(BA$B$KE>Aw$9$k(B\\ \hline
-7F& LD A, A & A$B$r(BA$B$KE>Aw$9$k(B  \\ \hline
-78& LD A, B & B$B$r(BA$B$KE>Aw$9$k(B  \\ \hline
-79& LD A, C & C$B$r(BA$B$KE>Aw$9$k(B \\ \hline
-7A& LD A, D & D$B$r(BA$B$KE>Aw$9$k(B \\ \hline
-7B& LD A, E & E$B$r(BA$B$KE>Aw$9$k(B \\ \hline
-7C& LD A, H & H$B$r(BA$B$KE>Aw$9$k(B \\ \hline
-7D& LD A, L & L$B$r(BA$B$KE>Aw$9$k(B \\ \hline
-3E n&  LD A, n  & $BCM(Bn$B$r(BA$B$KE>Aw$9$k(B\\ \hline
-47& LD B, A & A$B$r(BB$B$KE>Aw$9$k(B  \\ \hline
-40& LD B, B & B$B$r(BB$B$KE>Aw$9$k(B  \\ \hline
-41& LD B, C & C$B$r(BB$B$KE>Aw$9$k(B  \\ \hline
-42& LD B, D & D$B$r(BB$B$KE>Aw$9$k(B  \\ \hline
-43& LD B, E & E$B$r(BB$B$KE>Aw$9$k(B  \\ \hline
-44& LD B, H & H$B$r(BB$B$KE>Aw$9$k(B  \\ \hline
-45& LD B, L & L$B$r(BB$B$KE>Aw$9$k(B  \\ \hline
-06 n& LD B, n & $BCM(Bn$B$r(BB$B$KE>Aw$9$k(B  \\ \hline
-32 nm& LD mn, A & A$B$r(BmnH$B$KE>Aw$9$k(B  \\ \hline
+3A n m& LD A, (mnH)&  メモリmnH番地の値をAに転送する\\ \hline
+7F& LD A, A & AをAに転送する  \\ \hline
+78& LD A, B & BをAに転送する  \\ \hline
+79& LD A, C & CをAに転送する \\ \hline
+7A& LD A, D & DをAに転送する \\ \hline
+7B& LD A, E & EをAに転送する \\ \hline
+7C& LD A, H & HをAに転送する \\ \hline
+7D& LD A, L & LをAに転送する \\ \hline
+3E n&  LD A, n  & 値nをAに転送する\\ \hline
+47& LD B, A & AをBに転送する  \\ \hline
+40& LD B, B & BをBに転送する  \\ \hline
+41& LD B, C & CをBに転送する  \\ \hline
+42& LD B, D & DをBに転送する  \\ \hline
+43& LD B, E & EをBに転送する  \\ \hline
+44& LD B, H & HをBに転送する  \\ \hline
+45& LD B, L & LをBに転送する  \\ \hline
+06 n& LD B, n & 値nをBに転送する  \\ \hline
+32 nm& LD mn, A & AをmnHに転送する  \\ \hline
 \end{tabular}
 \end{center}
 
@@ -132,52 +132,52 @@ C2 n m& JP NZ, mnH& $B%<%m%U%i%0$,$?$C$F$$$J$$$H$-(BmnH$BHVCO$K%8%c%s%W$9$k(
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-\multicolumn{3}{|c|}{LD($BE>Aw(B)}\\
+\multicolumn{3}{|c|}{LD(転送)}\\
 \hline
-$B5!3#8l(B& $B%K!<%b%K%C%/(B& $B5!G=(B \\ \hline
-4F& LD C, A & A$B$r(BC$B$KE>Aw$9$k(B  \\ \hline
-48& LD C, B & B$B$r(BC$B$KE>Aw$9$k(B  \\ \hline
-49& LD C, C & C$B$r(BC$B$KE>Aw$9$k(B  \\ \hline
-4A& LD C, D & D$B$r(BC$B$KE>Aw$9$k(B  \\ \hline
-4B& LD C, E & E$B$r(BC$B$KE>Aw$9$k(B  \\ \hline
-4C& LD C, H & H$B$r(BC$B$KE>Aw$9$k(B  \\ \hline
-4D& LD C, L & L$B$r(BC$B$KE>Aw$9$k(B  \\ \hline
-0E n& LD C, n & $BCM(Bn$B$r(BC$B$KE>Aw$9$k(B  \\ \hline
-57& LD D, A & A$B$r(BD$B$KE>Aw$9$k(B  \\ \hline
-50& LD D, B & B$B$r(BD$B$KE>Aw$9$k(B  \\ \hline
-51& LD D, C & C$B$r(BD$B$KE>Aw$9$k(B  \\ \hline
-52& LD D, D & D$B$r(BD$B$KE>Aw$9$k(B  \\ \hline
-53& LD D, E & E$B$r(BD$B$KE>Aw$9$k(B  \\ \hline
-54& LD D, H & H$B$r(BD$B$KE>Aw$9$k(B  \\ \hline
-55& LD D, L & L$B$r(BD$B$KE>Aw$9$k(B  \\ \hline
-16 n& LD D, n & $BCM(Bn$B$r(BD$B$KE>Aw$9$k(B  \\ \hline
-5F& LD E, A & A$B$r(BE$B$KE>Aw$9$k(B  \\ \hline
-58& LD E, B & B$B$r(BE$B$KE>Aw$9$k(B  \\ \hline
-59& LD E, C & C$B$r(BE$B$KE>Aw$9$k(B  \\ \hline
-5A& LD E, D & D$B$r(BE$B$KE>Aw$9$k(B  \\ \hline
-5B& LD E, E & E$B$r(BE$B$KE>Aw$9$k(B  \\ \hline
-5C& LD E, H & H$B$r(BE$B$KE>Aw$9$k(B  \\ \hline
-5D& LD E, L & L$B$r(BE$B$KE>Aw$9$k(B  \\ \hline
-1E n& LD E, n & $BCM(Bn$B$r(BE$B$KE>Aw$9$k(B  \\ \hline
-67& LD H, A & A$B$r(BH$B$KE>Aw$9$k(B  \\ \hline
-60& LD H, B & B$B$r(BH$B$KE>Aw$9$k(B  \\ \hline
-61& LD H, C & C$B$r(BH$B$KE>Aw$9$k(B  \\ \hline
-62& LD H, D & D$B$r(BH$B$KE>Aw$9$k(B  \\ \hline
-63& LD H, E & E$B$r(BH$B$KE>Aw$9$k(B  \\ \hline
-64& LD H, H & H$B$r(BH$B$KE>Aw$9$k(B  \\ \hline
-65& LD H, L & L$B$r(BH$B$KE>Aw$9$k(B  \\ \hline
-26 n& LD H, n & $BCM(Bn$B$r(BH$B$KE>Aw$9$k(B  \\ \hline
-6F& LD L, A & A$B$r(BL$B$KE>Aw$9$k(B  \\ \hline
-68& LD L, B & B$B$r(BL$B$KE>Aw$9$k(B  \\ \hline
-69& LD L, C & C$B$r(BL$B$KE>Aw$9$k(B  \\ \hline
-6A& LD L, D & D$B$r(BL$B$KE>Aw$9$k(B  \\ \hline
-6B& LD L, E & E$B$r(BL$B$KE>Aw$9$k(B  \\ \hline
-6C& LD L, H & H$B$r(BL$B$KE>Aw$9$k(B  \\ \hline
-6D& LD L, L & L$B$r(BL$B$KE>Aw$9$k(B  \\ \hline
-2E n& LD L, n & $BCM(Bn$B$r(BL$B$KE>Aw$9$k(B  \\ \hline
-01 n m& LD BC, mn & $BCM(BmnH$B$r(BBC$B$KE>Aw$9$k(B  \\ \hline
-11 n m& LD DE, mn & $BCM(BmnH$B$r(BDE$B$KE>Aw$9$k(B  \\ \hline
-21 n m& LD HL, mn & $BCM(BmnH$B$r(BHL$B$KE>Aw$9$k(B  \\ \hline
+機械語& ニーモニック& 機能 \\ \hline
+4F& LD C, A & AをCに転送する  \\ \hline
+48& LD C, B & BをCに転送する  \\ \hline
+49& LD C, C & CをCに転送する  \\ \hline
+4A& LD C, D & DをCに転送する  \\ \hline
+4B& LD C, E & EをCに転送する  \\ \hline
+4C& LD C, H & HをCに転送する  \\ \hline
+4D& LD C, L & LをCに転送する  \\ \hline
+0E n& LD C, n & 値nをCに転送する  \\ \hline
+57& LD D, A & AをDに転送する  \\ \hline
+50& LD D, B & BをDに転送する  \\ \hline
+51& LD D, C & CをDに転送する  \\ \hline
+52& LD D, D & DをDに転送する  \\ \hline
+53& LD D, E & EをDに転送する  \\ \hline
+54& LD D, H & HをDに転送する  \\ \hline
+55& LD D, L & LをDに転送する  \\ \hline
+16 n& LD D, n & 値nをDに転送する  \\ \hline
+5F& LD E, A & AをEに転送する  \\ \hline
+58& LD E, B & BをEに転送する  \\ \hline
+59& LD E, C & CをEに転送する  \\ \hline
+5A& LD E, D & DをEに転送する  \\ \hline
+5B& LD E, E & EをEに転送する  \\ \hline
+5C& LD E, H & HをEに転送する  \\ \hline
+5D& LD E, L & LをEに転送する  \\ \hline
+1E n& LD E, n & 値nをEに転送する  \\ \hline
+67& LD H, A & AをHに転送する  \\ \hline
+60& LD H, B & BをHに転送する  \\ \hline
+61& LD H, C & CをHに転送する  \\ \hline
+62& LD H, D & DをHに転送する  \\ \hline
+63& LD H, E & EをHに転送する  \\ \hline
+64& LD H, H & HをHに転送する  \\ \hline
+65& LD H, L & LをHに転送する  \\ \hline
+26 n& LD H, n & 値nをHに転送する  \\ \hline
+6F& LD L, A & AをLに転送する  \\ \hline
+68& LD L, B & BをLに転送する  \\ \hline
+69& LD L, C & CをLに転送する  \\ \hline
+6A& LD L, D & DをLに転送する  \\ \hline
+6B& LD L, E & EをLに転送する  \\ \hline
+6C& LD L, H & HをLに転送する  \\ \hline
+6D& LD L, L & LをLに転送する  \\ \hline
+2E n& LD L, n & 値nをLに転送する  \\ \hline
+01 n m& LD BC, mn & 値mnHをBCに転送する  \\ \hline
+11 n m& LD DE, mn & 値mnHをDEに転送する  \\ \hline
+21 n m& LD HL, mn & 値mnHをHLに転送する  \\ \hline
 
 \hline
 
@@ -195,62 +195,62 @@ C2 n m& JP NZ, mnH& $B%<%m%U%i%0$,$?$C$F$$$J$$$H$-(BmnH$BHVCO$K%8%c%s%W$9$k(
 \begin{tabular}{|c|c|c|}
 
 \hline
-\multicolumn{3}{|c|}{OR($BO@M}OB(B)}\\
+\multicolumn{3}{|c|}{OR(論理和)}\\
 \hline
-$B5!3#8l(B& $B%K!<%b%K%C%/(B& $B5!G=(B \\ \hline
-B7& OR A& A$B$H(BA$B$N%S%C%H$4$H$NO@M}OB$r$H$k(B\\ \hline
-B0& OR B& A$B$H(BB$B$N%S%C%H$4$H$NO@M}OB$r$H$k(B\\ \hline
-B1& OR C& A$B$H(BC$B$N%S%C%H$4$H$NO@M}OB$r$H$k(B\\ \hline
-B2& OR D& A$B$H(BD$B$N%S%C%H$4$H$NO@M}OB$r$H$k(B\\ \hline
-B3& OR E& A$B$H(BE$B$N%S%C%H$4$H$NO@M}OB$r$H$k(B\\ \hline
-B4& OR H& A$B$H(BH$B$N%S%C%H$4$H$NO@M}OB$r$H$k(B\\ \hline
-B5& OR L& A$B$H(BL$B$N%S%C%H$4$H$NO@M}OB$r$H$k(B\\ \hline
-F6 n& OR  n& A$B$H(Bn$B$N%S%C%H$4$H$NO@M}OB$r$H$k(B \\ \hline
+機械語& ニーモニック& 機能 \\ \hline
+B7& OR A& AとAのビットごとの論理和をとる\\ \hline
+B0& OR B& AとBのビットごとの論理和をとる\\ \hline
+B1& OR C& AとCのビットごとの論理和をとる\\ \hline
+B2& OR D& AとDのビットごとの論理和をとる\\ \hline
+B3& OR E& AとEのビットごとの論理和をとる\\ \hline
+B4& OR H& AとHのビットごとの論理和をとる\\ \hline
+B5& OR L& AとLのビットごとの論理和をとる\\ \hline
+F6 n& OR  n& Aとnのビットごとの論理和をとる \\ \hline
 \hline
-\multicolumn{3}{|c|}{OUT($B=PNO(B)}\\
+\multicolumn{3}{|c|}{OUT(出力)}\\
 \hline
-D3 n& OUT (n), A & A$B$NFbMF$r(BI/O$B%]!<%H(Bn$B$K=PNO$9$k(B \\ \hline
+D3 n& OUT (n), A & Aの内容をI/Oポートnに出力する \\ \hline
 \hline
-\multicolumn{3}{|c|}{RET($BLa$k(B)}\\
+\multicolumn{3}{|c|}{RET(戻る)}\\
 \hline
-C9 &RET & $B%5%V%k!<%F%#%s$+$iLa$k(B \\ \hline
-D8 &RET C& $B7e>e$27e2<$2%U%i%0$,N)$C$F$$$k$H$-%5%V%k!<%F%#%s$+$iLa$k(B \\ \hline
-D0 &RET NC& $B7e>e$27e2<$2%U%i%0$,N)$C$F$$$J$$$H$-%5%V%k!<%F%#%s$+$iLa$k(B \\ \hline
-F8 &RET M& $BIi$N?t%U%i%0$,N)$C$F$$$k$H$-%5%V%k!<%F%#%s$+$iLa$k(B \\ \hline
-F0 &RET P& $B@5$N?t%U%i%0$,N)$C$F$$$k$H$-%5%V%k!<%F%#%s$+$iLa$k(B \\ \hline
-E8 &RET PE& $B6v?t%U%i%0$,N)$C$F$$$k$H$-%5%V%k!<%F%#%s$+$iLa$k(B \\ \hline
-E0 &RET PO& $B4q?t%U%i%0$,N)$C$F$$$k$H$-%5%V%k!<%F%#%s$+$iLa$k(B \\ \hline
-C8 &RET Z& $B%<%m%U%i%0$,N)$C$F$$$k$H$-%5%V%k!<%F%#%s$+$iLa$k(B \\ \hline
-C0 &RET NZ& $B%<%m%U%i%0$,N)$C$F$$$J$$$H$-%5%V%k!<%F%#%s$+$iLa$k(B \\ \hline
+C9 &RET & サブルーティンから戻る \\ \hline
+D8 &RET C& 桁上げ桁下げフラグが立っているときサブルーティンから戻る \\ \hline
+D0 &RET NC& 桁上げ桁下げフラグが立っていないときサブルーティンから戻る \\ \hline
+F8 &RET M& 負の数フラグが立っているときサブルーティンから戻る \\ \hline
+F0 &RET P& 正の数フラグが立っているときサブルーティンから戻る \\ \hline
+E8 &RET PE& 偶数フラグが立っているときサブルーティンから戻る \\ \hline
+E0 &RET PO& 奇数フラグが立っているときサブルーティンから戻る \\ \hline
+C8 &RET Z& ゼロフラグが立っているときサブルーティンから戻る \\ \hline
+C0 &RET NZ& ゼロフラグが立っていないときサブルーティンから戻る \\ \hline
 \hline
-\multicolumn{3}{|c|}{RLCA($B:8%S%C%H%7%U%H(B)}\\
+\multicolumn{3}{|c|}{RLCA(左ビットシフト)}\\
 \hline
-07&  RLCA& A$B$NFbMF$r:8$K%7%U%H$9$k(B\\ \hline
+07&  RLCA& Aの内容を左にシフトする\\ \hline
 \hline
-\multicolumn{3}{|c|}{RRCA($B1&%S%C%H%7%U%H(B)}\\
+\multicolumn{3}{|c|}{RRCA(右ビットシフト)}\\
 \hline
-0F&  RRCA& A$B$NFbMF$r1&$K%7%U%H$9$k(B\\ \hline
+0F&  RRCA& Aの内容を右にシフトする\\ \hline
 \hline
-\multicolumn{3}{|c|}{SUB($B8:;;(B)}\\
+\multicolumn{3}{|c|}{SUB(減算)}\\
 \hline
-97 & SUB A & A$B$+$i(BA$B$r0z$/(B\\ \hline
-90 & SUB B & A$B$+$i(BB$B$r0z$/(B\\ \hline
-91 & SUB C & A$B$+$i(BC$B$r0z$/(B\\ \hline
-92 & SUB D & A$B$+$i(BD$B$r0z$/(B\\ \hline
-93 & SUB E & A$B$+$i(BE$B$r0z$/(B\\ \hline
-94 & SUB H & A$B$+$i(BH$B$r0z$/(B\\ \hline
-95 & SUB L & A$B$+$i(BL$B$r0z$/(B\\ \hline
-D6 n & SUB n & A$B$+$i(Bn$B$r0z$/(B\\ \hline
+97 & SUB A & AからAを引く\\ \hline
+90 & SUB B & AからBを引く\\ \hline
+91 & SUB C & AからCを引く\\ \hline
+92 & SUB D & AからDを引く\\ \hline
+93 & SUB E & AからEを引く\\ \hline
+94 & SUB H & AからHを引く\\ \hline
+95 & SUB L & AからLを引く\\ \hline
+D6 n & SUB n & Aからnを引く\\ \hline
 \hline
-\multicolumn{3}{|c|}{XOR($BGSB>E*O@M}OB(B)}\\
+\multicolumn{3}{|c|}{XOR(排他的論理和)}\\
 \hline
-AF &XOR A& A$B$H(BA$B$N%S%C%H$4$H$NGSB>E*O@M}OB$r$H$k(B \\ \hline
-A8 &XOR B& A$B$H(BB$B$N%S%C%H$4$H$NGSB>E*O@M}OB$r$H$k(B\\ \hline
-A9 &XOR C& A$B$H(BC$B$N%S%C%H$4$H$NGSB>E*O@M}OB$r$H$k(B\\ \hline
-AA &XOR D& A$B$H(BD$B$N%S%C%H$4$H$NGSB>E*O@M}OB$r$H$k(B\\ \hline
-AB &XOR E& A$B$H(BE$B$N%S%C%H$4$H$NGSB>E*O@M}OB$r$H$k(B\\ \hline
-AC &XOR H& A$B$H(BH$B$N%S%C%H$4$H$NGSB>E*O@M}OB$r$H$k(B\\ \hline
-AD &XOR L& A$B$H(BL$B$N%S%C%H$4$H$NGSB>E*O@M}OB$r$H$k(B\\ \hline
-EE n&XOR n& A$B$H(Bn$B$N%S%C%H$4$H$NGSB>E*O@M}OB$r$H$k(B\\ \hline
+AF &XOR A& AとAのビットごとの排他的論理和をとる \\ \hline
+A8 &XOR B& AとBのビットごとの排他的論理和をとる\\ \hline
+A9 &XOR C& AとCのビットごとの排他的論理和をとる\\ \hline
+AA &XOR D& AとDのビットごとの排他的論理和をとる\\ \hline
+AB &XOR E& AとEのビットごとの排他的論理和をとる\\ \hline
+AC &XOR H& AとHのビットごとの排他的論理和をとる\\ \hline
+AD &XOR L& AとLのビットごとの排他的論理和をとる\\ \hline
+EE n&XOR n& Aとnのビットごとの排他的論理和をとる\\ \hline
 \end{tabular}
 \end{center}
